@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -7,6 +8,7 @@
   <title>フラワースカイレンタカー</title>
 
   <style>
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -20,10 +22,12 @@
         "Hiragino Kaku Gothic ProN",
         Arial,
         sans-serif;
+
       color: #333;
       background: #f8fcff;
       line-height: 1.6;
     }
+
 
     /* =========================
        ヘッダー
@@ -33,30 +37,38 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(255, 255, 255, 0.97);
+
+      background: rgba(255,255,255,0.97);
+
       border-bottom: 1px solid #e5edf2;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+
+      box-shadow:
+        0 2px 12px rgba(0,0,0,0.05);
     }
 
     .header-inner {
       max-width: 1400px;
       margin: 0 auto;
+
       min-height: 78px;
+
       padding: 0 30px;
 
       display: flex;
       align-items: center;
       justify-content: space-between;
+
       gap: 30px;
     }
 
-    /* 会社名 */
-
     .logo {
       text-decoration: none;
+
       color: #198dcc;
+
       font-size: 24px;
       font-weight: 800;
+
       white-space: nowrap;
     }
 
@@ -64,25 +76,28 @@
       color: #f3a735;
     }
 
-    /* 右側 */
-
     .header-right {
       display: flex;
       align-items: center;
+
       gap: 28px;
     }
 
     nav {
       display: flex;
       align-items: center;
+
       gap: 26px;
     }
 
     nav a {
       text-decoration: none;
+
       color: #333;
+
       font-size: 15px;
       font-weight: 600;
+
       transition: 0.2s;
     }
 
@@ -90,24 +105,30 @@
       color: #1595d0;
     }
 
-    /* ログイン */
-
     .login-button {
       text-decoration: none;
+
       background: #1595d0;
       color: white;
+
       padding: 10px 20px;
+
       border-radius: 24px;
+
       font-size: 14px;
       font-weight: 700;
-      transition: 0.2s;
+
       white-space: nowrap;
+
+      transition: 0.2s;
     }
 
     .login-button:hover {
       background: #0b78ae;
+
       transform: translateY(-1px);
     }
+
 
     /* =========================
        メイン
@@ -115,9 +136,13 @@
 
     main {
       max-width: 1400px;
+
       margin: 0 auto;
-      padding: 40px 30px 80px;
+
+      padding:
+        40px 30px 80px;
     }
+
 
     /* =========================
        メインビジュアル
@@ -125,18 +150,25 @@
 
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 1.7fr) minmax(350px, 0.8fr);
+
+      grid-template-columns:
+        minmax(0, 1.7fr)
+        minmax(350px, 0.8fr);
+
       gap: 25px;
+
       min-height: 620px;
     }
 
-    /* 車両画像 */
-
     .vehicle-image {
       position: relative;
+
       min-height: 620px;
+
       border-radius: 24px;
+
       overflow: hidden;
+
       background:
         linear-gradient(
           135deg,
@@ -145,75 +177,84 @@
         );
     }
 
-    /*
-      車両画像を入れる場所
-
-      ここを自分の画像ファイルに変更してください。
-
-      例：
-      background-image: url("images/voxy.jpg");
-    */
-
     .vehicle-image::before {
       content: "";
+
       position: absolute;
+
       inset: 0;
 
       background:
         linear-gradient(
           to top,
-          rgba(0, 0, 0, 0.68),
-          rgba(0, 0, 0, 0.05) 65%
+          rgba(0,0,0,0.68),
+          rgba(0,0,0,0.05) 65%
         );
     }
 
-    /* 仮の車イメージ */
-
     .car-placeholder {
       position: absolute;
+
       inset: 0;
 
       display: flex;
+
       justify-content: center;
       align-items: center;
 
       font-size: 100px;
-      color: rgba(255, 255, 255, 0.8);
-    }
 
-    /* 車両紹介 */
+      color:
+        rgba(255,255,255,0.8);
+    }
 
     .vehicle-info {
       position: absolute;
+
       left: 40px;
       right: 40px;
       bottom: 35px;
+
       z-index: 2;
+
       color: white;
     }
 
     .vehicle-info .category {
       display: inline-block;
+
       background: #f2a83b;
+
       padding: 5px 14px;
+
       border-radius: 20px;
+
       font-size: 13px;
       font-weight: 700;
+
       margin-bottom: 10px;
     }
 
     .vehicle-info h1 {
       font-size: 42px;
+
       line-height: 1.2;
+
       margin-bottom: 12px;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+
+      text-shadow:
+        0 2px 10px rgba(0,0,0,0.3);
     }
 
     .vehicle-info p {
       max-width: 650px;
+
       font-size: 16px;
-      text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+
+      text-shadow:
+        0 1px 5px rgba(0,0,0,0.5);
     }
+
 
     /* =========================
        カレンダー
@@ -221,12 +262,19 @@
 
     .calendar-card {
       background: white;
+
       border-radius: 24px;
+
       padding: 30px;
-      box-shadow: 0 10px 35px rgba(29, 108, 142, 0.12);
+
+      box-shadow:
+        0 10px 35px
+        rgba(29,108,142,0.12);
+
       border: 1px solid #e3eef3;
 
       display: flex;
+
       flex-direction: column;
     }
 
@@ -236,39 +284,48 @@
 
     .calendar-title h2 {
       font-size: 23px;
+
       color: #177fae;
+
       margin-bottom: 4px;
     }
 
     .calendar-title p {
       font-size: 13px;
+
       color: #777;
     }
 
-    /* 月切り替え */
-
     .calendar-header {
       display: flex;
+
       justify-content: space-between;
+
       align-items: center;
+
       margin-bottom: 18px;
     }
 
     .month-title {
       font-size: 19px;
+
       font-weight: 700;
     }
 
     .month-button {
       border: none;
+
       background: #edf8fc;
+
       color: #1687b7;
 
       width: 36px;
       height: 36px;
 
       border-radius: 50%;
+
       cursor: pointer;
+
       font-size: 18px;
 
       transition: 0.2s;
@@ -278,12 +335,12 @@
       background: #d9f0f8;
     }
 
-    /* 曜日 */
-
     .weekdays,
     .calendar-grid {
       display: grid;
-      grid-template-columns: repeat(7, 1fr);
+
+      grid-template-columns:
+        repeat(7, 1fr);
     }
 
     .weekdays {
@@ -292,9 +349,13 @@
 
     .weekday {
       text-align: center;
+
       font-size: 12px;
+
       font-weight: 700;
+
       color: #777;
+
       padding: 5px 0;
     }
 
@@ -306,20 +367,23 @@
       color: #4585c4;
     }
 
-    /* 日付 */
-
     .calendar-day {
       aspect-ratio: 1 / 1;
+
       border: none;
+
       background: transparent;
+
       border-radius: 12px;
 
       cursor: pointer;
 
       font-size: 14px;
+
       position: relative;
 
       display: flex;
+
       align-items: center;
       justify-content: center;
 
@@ -334,19 +398,21 @@
       cursor: default;
     }
 
-    /* 予約済み */
-
     .calendar-day.reserved {
       background: #f2f2f2;
+
       color: #aaa;
+
       cursor: not-allowed;
     }
 
     .calendar-day.reserved::after {
       content: "×";
+
       position: absolute;
 
       font-size: 24px;
+
       font-weight: 700;
 
       color: #e45f68;
@@ -354,42 +420,46 @@
       opacity: 0.9;
     }
 
-    /* 選択 */
-
     .calendar-day.selected {
       background: #1595d0;
+
       color: white;
+
       font-weight: 700;
     }
-
-    /* 今日 */
 
     .calendar-day.today {
       border: 2px solid #1595d0;
     }
 
-    /* 凡例 */
-
     .calendar-legend {
       display: flex;
+
       gap: 18px;
+
       margin-top: 20px;
+
       padding-top: 15px;
+
       border-top: 1px solid #eee;
 
       font-size: 12px;
+
       color: #666;
     }
 
     .legend-item {
       display: flex;
+
       align-items: center;
+
       gap: 5px;
     }
 
     .legend-box {
       width: 14px;
       height: 14px;
+
       border-radius: 4px;
     }
 
@@ -399,38 +469,45 @@
 
     .legend-reserved {
       background: #f2f2f2;
+
       position: relative;
     }
 
     .legend-reserved::after {
       content: "×";
+
       color: #e45f68;
+
       font-size: 12px;
+
       position: absolute;
+
       left: 3px;
       top: -2px;
     }
 
-    /* 予約ボタン */
-
     .reservation-button {
       width: 100%;
+
       margin-top: 20px;
 
       border: none;
+
       border-radius: 14px;
 
       padding: 15px;
 
-      background: linear-gradient(
-        135deg,
-        #1595d0,
-        #44b7dd
-      );
+      background:
+        linear-gradient(
+          135deg,
+          #1595d0,
+          #44b7dd
+        );
 
       color: white;
 
       font-size: 16px;
+
       font-weight: 700;
 
       cursor: pointer;
@@ -440,11 +517,15 @@
 
     .reservation-button:hover {
       transform: translateY(-2px);
-      box-shadow: 0 7px 18px rgba(21, 149, 208, 0.25);
+
+      box-shadow:
+        0 7px 18px
+        rgba(21,149,208,0.25);
     }
 
+
     /* =========================
-       下部紹介
+       共通セクション
     ========================= */
 
     .section {
@@ -453,48 +534,250 @@
 
     .section-title {
       text-align: center;
+
       margin-bottom: 35px;
     }
 
     .section-title h2 {
       font-size: 30px;
+
       color: #167ea9;
+
       margin-bottom: 8px;
     }
 
     .section-title p {
       color: #777;
+
       font-size: 14px;
     }
 
-    .info-grid {
+
+    /* =========================
+       車両詳細
+    ========================= */
+
+    .vehicle-detail {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
 
-    .info-card {
+      grid-template-columns:
+        1.25fr 1fr;
+
+      gap: 45px;
+
       background: white;
+
+      border-radius: 24px;
+
       padding: 30px;
-      border-radius: 20px;
-      border: 1px solid #e5eef2;
-      text-align: center;
+
+      border: 1px solid #e3eef3;
+
+      box-shadow:
+        0 10px 35px
+        rgba(29,108,142,0.10);
     }
 
-    .info-icon {
-      font-size: 36px;
+
+    /* =========================
+       車両ギャラリー
+    ========================= */
+
+    .vehicle-gallery {
+      min-width: 0;
+    }
+
+    .main-photo {
+      width: 100%;
+
+      height: 430px;
+
+      overflow: hidden;
+
+      border-radius: 18px;
+
+      background: #eef7fa;
+    }
+
+    .main-photo img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      display: block;
+
+      transition: opacity 0.2s ease;
+    }
+
+    .thumbnail-list {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 10px;
+
+      margin-top: 12px;
+    }
+
+    .thumbnail {
+      border: 2px solid transparent;
+
+      padding: 0;
+
+      background: none;
+
+      border-radius: 10px;
+
+      overflow: hidden;
+
+      cursor: pointer;
+
+      aspect-ratio: 4 / 3;
+    }
+
+    .thumbnail img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      display: block;
+    }
+
+    .thumbnail:hover {
+      opacity: 0.8;
+    }
+
+    .thumbnail.active {
+      border-color: #1595d0;
+    }
+
+
+    /* =========================
+       車両情報
+    ========================= */
+
+    .vehicle-detail-info {
+      padding: 10px 5px;
+    }
+
+    .vehicle-category {
+      display: inline-block;
+
+      background: #edf8fc;
+
+      color: #1687b7;
+
+      padding: 5px 14px;
+
+      border-radius: 20px;
+
+      font-size: 13px;
+
+      font-weight: 700;
+
       margin-bottom: 12px;
     }
 
-    .info-card h3 {
-      margin-bottom: 8px;
-      color: #247d9e;
+    .vehicle-detail-info h3 {
+      font-size: 32px;
+
+      color: #267c9f;
+
+      margin-bottom: 15px;
     }
 
-    .info-card p {
-      font-size: 14px;
+    .vehicle-description {
       color: #666;
+
+      font-size: 14px;
+
+      line-height: 1.9;
+
+      margin-bottom: 25px;
     }
+
+    .vehicle-detail-info h4 {
+      font-size: 20px;
+
+      color: #333;
+
+      margin-bottom: 12px;
+
+      padding-bottom: 8px;
+
+      border-bottom:
+        2px solid #e7f2f6;
+    }
+
+    .spec-table {
+      border-top:
+        1px solid #e5e5e5;
+    }
+
+    .spec-row {
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      padding: 9px 0;
+
+      border-bottom:
+        1px solid #eeeeee;
+
+      font-size: 13px;
+    }
+
+    .spec-row span {
+      color: #777;
+    }
+
+    .spec-row strong {
+      color: #333;
+
+      font-weight: 600;
+    }
+
+    .vehicle-reserve-button {
+      width: 100%;
+
+      margin-top: 25px;
+
+      padding: 15px;
+
+      border: none;
+
+      border-radius: 13px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #1595d0,
+          #44b7dd
+        );
+
+      color: white;
+
+      font-size: 16px;
+
+      font-weight: 700;
+
+      cursor: pointer;
+
+      transition: 0.2s;
+    }
+
+    .vehicle-reserve-button:hover {
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 7px 18px
+        rgba(21,149,208,0.25);
+    }
+
 
     /* =========================
        フッター
@@ -502,11 +785,16 @@
 
     footer {
       background: #147ca7;
+
       color: white;
+
       text-align: center;
+
       padding: 30px 20px;
+
       font-size: 13px;
     }
+
 
     /* =========================
        スマホ
@@ -516,18 +804,23 @@
 
       .header-inner {
         padding: 15px 20px;
+
         align-items: flex-start;
       }
 
       .header-right {
         flex-direction: column;
+
         align-items: flex-end;
+
         gap: 12px;
       }
 
       nav {
         gap: 14px;
+
         flex-wrap: wrap;
+
         justify-content: flex-end;
       }
 
@@ -543,14 +836,19 @@
         min-height: 500px;
       }
 
-      .calendar-card {
-        min-height: auto;
+      .vehicle-detail {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+
+        padding: 20px;
       }
 
-      .info-grid {
-        grid-template-columns: 1fr;
+      .main-photo {
+        height: 400px;
       }
     }
+
 
     @media (max-width: 600px) {
 
@@ -576,15 +874,18 @@
 
       .login-button {
         padding: 7px 13px;
+
         font-size: 11px;
       }
 
       main {
-        padding: 20px 12px 60px;
+        padding:
+          20px 12px 60px;
       }
 
       .vehicle-image {
         min-height: 430px;
+
         border-radius: 18px;
       }
 
@@ -604,7 +905,26 @@
 
       .calendar-card {
         padding: 22px 16px;
+
         border-radius: 18px;
+      }
+
+      .vehicle-detail {
+        padding: 15px;
+
+        border-radius: 18px;
+      }
+
+      .main-photo {
+        height: 280px;
+      }
+
+      .vehicle-detail-info h3 {
+        font-size: 26px;
+      }
+
+      .thumbnail-list {
+        gap: 6px;
       }
     }
 
@@ -613,6 +933,7 @@
 
 
 <body>
+
 
   <!-- =========================
        ヘッダー
@@ -629,10 +950,23 @@
       <div class="header-right">
 
         <nav>
-          <a href="#vehicles">車両紹介</a>
-          <a href="#price">料金設定</a>
-          <a href="#flow">ご利用の流れ</a>
-          <a href="#contact">問い合わせ</a>
+
+          <a href="#vehicles">
+            車両紹介
+          </a>
+
+          <a href="#price">
+            料金設定
+          </a>
+
+          <a href="#flow">
+            ご利用の流れ
+          </a>
+
+          <a href="#contact">
+            問い合わせ
+          </a>
+
         </nav>
 
         <a href="#" class="login-button">
@@ -652,16 +986,17 @@
 
   <main>
 
+
+    <!-- =========================
+         メインビジュアル
+    ========================= -->
+
     <section class="hero">
+
 
       <!-- 車両画像 -->
 
       <div class="vehicle-image">
-
-        <!--
-          実際の車両画像を入れる場合は、
-          CSSのbackground-imageを設定してください。
-        -->
 
         <div class="car-placeholder">
           🚐
@@ -696,7 +1031,9 @@
 
         <div class="calendar-title">
 
-          <h2>空車状況を確認</h2>
+          <h2>
+            空車状況を確認
+          </h2>
 
           <p>
             ご希望の日付を選択してください
@@ -710,18 +1047,24 @@
           <button
             class="month-button"
             id="prevMonth">
+
             ‹
+
           </button>
+
 
           <div
             class="month-title"
             id="monthTitle">
           </div>
 
+
           <button
             class="month-button"
             id="nextMonth">
+
             ›
+
           </button>
 
         </div>
@@ -749,13 +1092,24 @@
         <div class="calendar-legend">
 
           <div class="legend-item">
-            <div class="legend-box legend-available"></div>
+
+            <div
+              class="legend-box legend-available">
+            </div>
+
             空車
+
           </div>
 
+
           <div class="legend-item">
-            <div class="legend-box legend-reserved"></div>
+
+            <div
+              class="legend-box legend-reserved">
+            </div>
+
             予約済み
+
           </div>
 
         </div>
@@ -774,552 +1128,257 @@
     </section>
 
 
-  ```html
-<!-- =========================
-     車両紹介
-========================= -->
+    <!-- =========================
+         車両紹介
+    ========================= -->
 
-<section
-  class="section vehicle-section"
-  id="vehicles">
-
-  <div class="section-title">
-
-    <h2>車両紹介</h2>
-
-    <p>
-      フラワースカイレンタカーの車両をご紹介します
-    </p>
-
-  </div>
+    <section
+      class="section vehicle-section"
+      id="vehicles">
 
 
-  <!-- 車両1台 -->
+      <div class="section-title">
 
-  <div class="vehicle-detail">
+        <h2>
+          車両紹介
+        </h2>
 
-    <!-- 写真 -->
-
-    <div class="vehicle-gallery">
-
-      <div class="main-photo">
-
-        <!--
-          ここを実際の車両画像に変更
-
-          例：
-          <img src="images/car1.jpg" alt="フラワースカイレンタカー">
-        -->
-
-        <img
-          id="mainVehicleImage"
-          src="images/car1.jpg"
-          alt="フラワースカイレンタカー 車両"
-        >
+        <p>
+          フラワースカイレンタカーの車両をご紹介します
+        </p>
 
       </div>
 
 
-      <!-- サムネイル -->
-
-      <div class="thumbnail-list">
-
-        <button
-          class="thumbnail active"
-          onclick="changeVehicleImage('images/car1.jpg', this)">
-
-          <img
-            src="images/car1.jpg"
-            alt="車両写真1"
-          >
-
-        </button>
+      <div class="vehicle-detail">
 
 
-        <button
-          class="thumbnail"
-          onclick="changeVehicleImage('images/car2.jpg', this)">
+        <!-- =========================
+             写真
+        ========================= -->
 
-          <img
-            src="images/car2.jpg"
-            alt="車両写真2"
-          >
-
-        </button>
+        <div class="vehicle-gallery">
 
 
-        <button
-          class="thumbnail"
-          onclick="changeVehicleImage('images/car3.jpg', this)">
+          <div class="main-photo">
 
-          <img
-            src="images/car3.jpg"
-            alt="車両写真3"
-          >
+            <img
+              id="mainVehicleImage"
+              src="images/car1.jpg"
+              alt="フラワースカイレンタカー ハイエース">
 
-        </button>
+          </div>
 
 
-        <button
-          class="thumbnail"
-          onclick="changeVehicleImage('images/car4.jpg', this)">
+          <div class="thumbnail-list">
 
-          <img
-            src="images/car4.jpg"
-            alt="車両写真4"
-          >
 
-        </button>
+            <button
+              class="thumbnail active"
+              onclick="changeVehicleImage('images/car1.jpg', this)">
+
+              <img
+                src="images/car1.jpg"
+                alt="ハイエース写真1">
+
+            </button>
+
+
+            <button
+              class="thumbnail"
+              onclick="changeVehicleImage('images/car2.jpg', this)">
+
+              <img
+                src="images/car2.jpg"
+                alt="ハイエース写真2">
+
+            </button>
+
+
+            <button
+              class="thumbnail"
+              onclick="changeVehicleImage('images/car3.jpg', this)">
+
+              <img
+                src="images/car3.jpg"
+                alt="ハイエース写真3">
+
+            </button>
+
+
+            <button
+              class="thumbnail"
+              onclick="changeVehicleImage('images/car4.jpg', this)">
+
+              <img
+                src="images/car4.jpg"
+                alt="ハイエース写真4">
+
+            </button>
+
+
+          </div>
+
+        </div>
+
+
+        <!-- =========================
+             車両情報
+        ========================= -->
+
+        <div class="vehicle-detail-info">
+
+
+          <span class="vehicle-category">
+            ミニバン
+          </span>
+
+
+          <h3>
+            トヨタ ハイエース
+          </h3>
+
+
+          <p class="vehicle-description">
+
+            ご家族でのお出かけや旅行におすすめの
+            ゆったりとしたミニバンです。
+            広い室内空間と十分な荷室を備え、
+            ご家族での旅行にも快適にご利用いただけます。
+
+          </p>
+
+
+          <h4>
+            車両スペック
+          </h4>
+
+
+          <div class="spec-table">
+
+
+            <div class="spec-row">
+
+              <span>
+                メーカー
+              </span>
+
+              <strong>
+                トヨタ
+              </strong>
+
+            </div>
+
+
+            <div class="spec-row">
+
+              <span>
+                車種
+              </span>
+
+              <strong>
+                ハイエース
+              </strong>
+
+            </div>
+
+
+            <div class="spec-row">
+
+              <span>
+                乗車定員
+              </span>
+
+              <strong>
+                ４名
+              </strong>
+
+            </div>
+
+
+            <div class="spec-row">
+
+              <span>
+                駆動方式
+              </span>
+
+              <strong>
+                ４WD
+              </strong>
+
+            </div>
+
+
+            <div class="spec-row">
+
+              <span>
+                燃料
+              </span>
+
+              <strong>
+                レギュラーガソリン
+              </strong>
+
+            </div>
+
+
+            <div class="spec-row">
+
+              <span>
+                トランスミッション
+              </span>
+
+              <strong>
+                CVT
+              </strong>
+
+            </div>
+
+
+            <div class="spec-row">
+
+              <span>
+                カーナビ
+              </span>
+
+              <strong>
+                あり
+              </strong>
+
+            </div>
+
+
+            <div class="spec-row">
+
+              <span>
+                ETC
+              </span>
+
+              <strong>
+                あり
+              </strong>
+
+            </div>
+
+
+          </div>
+
+
+          <button
+            class="vehicle-reserve-button"
+            onclick="scrollToCalendar()">
+
+            この車を予約する
+
+          </button>
+
+
+        </div>
 
       </div>
 
-    </div>
+    </section>
 
-
-    <!-- 車両情報 -->
-
-    <div class="vehicle-detail-info">
-
-      <span class="vehicle-category">
-        ミニバン
-      </span>
-
-
-      <h3>
-        トヨタ ヴォクシー
-      </h3>
-
-
-      <p class="vehicle-description">
-
-        ご家族でのお出かけや旅行におすすめの
-        ゆったりとしたミニバンです。
-        広い室内空間と十分な荷室を備え、
-        4人家族での旅行にも快適にご利用いただけます。
-
-      </p>
-
-
-      <!-- スペック -->
-
-      <h4>
-        車両スペック
-      </h4>
-
-
-      <div class="spec-table">
-
-        <div class="spec-row">
-          <span>メーカー</span>
-          <strong>トヨタ</strong>
-        </div>
-
-        <div class="spec-row">
-          <span>車種</span>
-          <strong>トヨタ　ハイエース</strong>
-        </div>
-
-        <div class="spec-row">
-          <span>乗車定員</span>
-          <strong>４名</strong>
-        </div>
-
-        <div class="spec-row">
-          <span>駆動方式</span>
-          <strong>４WD</strong>
-        </div>
-
-        <div class="spec-row">
-          <span>燃料</span>
-          <strong>レギュラーガソリン</strong>
-        </div>
-
-        <div class="spec-row">
-          <span>トランスミッション</span>
-          <strong>CVT</strong>
-        </div>
-
-        <div class="spec-row">
-          <span>カーナビ</span>
-          <strong>あり</strong>
-        </div>
-
-        <div class="spec-row">
-          <span>ETC</span>
-          <strong>あり</strong>
-        </div>
-
-      </div>
-
-
-      <button
-        class="vehicle-reserve-button"
-        onclick="scrollToCalendar()">
-
-        この車を予約する
-
-      </button>
-
-    </div>
-
-  </div>
-
-</section>
-```
-
-そして、今のCSSの最後あたりに**これを追加**。
-
-```css
-/* =========================
-   車両詳細
-========================= */
-
-.vehicle-detail {
-  display: grid;
-  grid-template-columns: 1.25fr 1fr;
-  gap: 45px;
-
-  background: white;
-  border-radius: 24px;
-  padding: 30px;
-
-  border: 1px solid #e3eef3;
-
-  box-shadow:
-    0 10px 35px rgba(29, 108, 142, 0.10);
-}
-
-
-/* =========================
-   車両ギャラリー
-========================= */
-
-.vehicle-gallery {
-  min-width: 0;
-}
-
-.main-photo {
-  width: 100%;
-  height: 430px;
-
-  overflow: hidden;
-  border-radius: 18px;
-
-  background: #eef7fa;
-}
-
-.main-photo img {
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-
-  display: block;
-
-  transition: opacity 0.2s ease;
-}
-
-
-/* サムネイル */
-
-.thumbnail-list {
-  display: grid;
-
-  grid-template-columns:
-    repeat(4, 1fr);
-
-  gap: 10px;
-
-  margin-top: 12px;
-}
-
-.thumbnail {
-  border: 2px solid transparent;
-
-  padding: 0;
-
-  background: none;
-
-  border-radius: 10px;
-
-  overflow: hidden;
-
-  cursor: pointer;
-
-  aspect-ratio: 4 / 3;
-}
-
-.thumbnail img {
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-
-  display: block;
-}
-
-.thumbnail:hover {
-  opacity: 0.8;
-}
-
-.thumbnail.active {
-  border-color: #1595d0;
-}
-
-
-/* =========================
-   車両情報
-========================= */
-
-.vehicle-detail-info {
-  padding: 10px 5px;
-}
-
-.vehicle-category {
-  display: inline-block;
-
-  background: #edf8fc;
-
-  color: #1687b7;
-
-  padding: 5px 14px;
-
-  border-radius: 20px;
-
-  font-size: 13px;
-
-  font-weight: 700;
-
-  margin-bottom: 12px;
-}
-
-.vehicle-detail-info h3 {
-  font-size: 32px;
-
-  color: #267c9f;
-
-  margin-bottom: 15px;
-}
-
-.vehicle-description {
-  color: #666;
-
-  font-size: 14px;
-
-  line-height: 1.9;
-
-  margin-bottom: 25px;
-}
-
-
-/* =========================
-   スペック
-========================= */
-
-.vehicle-detail-info h4 {
-  font-size: 20px;
-
-  color: #333;
-
-  margin-bottom: 12px;
-
-  padding-bottom: 8px;
-
-  border-bottom: 2px solid #e7f2f6;
-}
-
-.spec-table {
-  border-top: 1px solid #e5e5e5;
-}
-
-.spec-row {
-  display: grid;
-
-  grid-template-columns: 1fr 1fr;
-
-  padding: 9px 0;
-
-  border-bottom: 1px solid #eeeeee;
-
-  font-size: 13px;
-}
-
-.spec-row span {
-  color: #777;
-}
-
-.spec-row strong {
-  color: #333;
-
-  font-weight: 600;
-}
-
-
-/* =========================
-   予約ボタン
-========================= */
-
-.vehicle-reserve-button {
-  width: 100%;
-
-  margin-top: 25px;
-
-  padding: 15px;
-
-  border: none;
-
-  border-radius: 13px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #1595d0,
-      #44b7dd
-    );
-
-  color: white;
-
-  font-size: 16px;
-
-  font-weight: 700;
-
-  cursor: pointer;
-
-  transition: 0.2s;
-}
-
-.vehicle-reserve-button:hover {
-  transform: translateY(-2px);
-
-  box-shadow:
-    0 7px 18px
-    rgba(21, 149, 208, 0.25);
-}
-
-
-/* =========================
-   スマホ
-========================= */
-
-@media (max-width: 950px) {
-
-  .vehicle-detail {
-    grid-template-columns: 1fr;
-
-    gap: 30px;
-
-    padding: 20px;
-  }
-
-  .main-photo {
-    height: 400px;
-  }
-
-}
-
-
-@media (max-width: 600px) {
-
-  .vehicle-detail {
-    padding: 15px;
-
-    border-radius: 18px;
-  }
-
-  .main-photo {
-    height: 280px;
-  }
-
-  .vehicle-detail-info h3 {
-    font-size: 26px;
-  }
-
-  .thumbnail-list {
-    gap: 6px;
-  }
-
-}
-```
-
-最後に、`</body>` の直前あたりに**このJavaScriptを追加**。
-
-```html
-<script>
-
-  /*
-    車両写真を切り替える
-  */
-
-  function changeVehicleImage(
-    imagePath,
-    clickedThumbnail
-  ) {
-
-    const mainImage =
-      document.getElementById(
-        "mainVehicleImage"
-      );
-
-    mainImage.src =
-      imagePath;
-
-
-    /*
-      すべてのサムネイルから
-      activeを外す
-    */
-
-    document
-      .querySelectorAll(
-        ".thumbnail"
-      )
-      .forEach(
-        thumbnail => {
-
-          thumbnail.classList.remove(
-            "active"
-          );
-
-        }
-      );
-
-
-    /*
-      選択した写真をactive
-    */
-
-    clickedThumbnail.classList.add(
-      "active"
-    );
-
-  }
-
-
-  /*
-    「この車を予約する」を
-    カレンダーまで移動
-  */
-
-  function scrollToCalendar() {
-
-    const calendar =
-      document.querySelector(
-        ".calendar-card"
-      );
-
-    if (calendar) {
-
-      calendar.scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-      });
-
-    }
-
-  }
-
-</script>
-```
 
     <!-- =========================
          料金
@@ -1329,9 +1388,12 @@
       class="section"
       id="price">
 
+
       <div class="section-title">
 
-        <h2>料金設定</h2>
+        <h2>
+          料金設定
+        </h2>
 
         <p>
           分かりやすい料金設定を目指しています
@@ -1350,9 +1412,12 @@
       class="section"
       id="flow">
 
+
       <div class="section-title">
 
-        <h2>ご利用の流れ</h2>
+        <h2>
+          ご利用の流れ
+        </h2>
 
         <p>
           予約から返却まで簡単・スムーズ
@@ -1371,9 +1436,12 @@
       class="section"
       id="contact">
 
+
       <div class="section-title">
 
-        <h2>お問い合わせ</h2>
+        <h2>
+          お問い合わせ
+        </h2>
 
         <p>
           ご不明な点がございましたらお気軽にお問い合わせください
@@ -1382,6 +1450,7 @@
       </div>
 
     </section>
+
 
   </main>
 
@@ -1398,24 +1467,91 @@
 
 
   <!-- =========================
-       カレンダー JavaScript
+       JavaScript
   ========================= -->
 
   <script>
 
-    let currentDate = new Date();
 
-    let selectedDate = null;
+    /* =========================
+       車両写真切り替え
+    ========================= */
+
+    function changeVehicleImage(
+      imagePath,
+      clickedThumbnail
+    ) {
+
+      const mainImage =
+        document.getElementById(
+          "mainVehicleImage"
+        );
+
+
+      mainImage.src =
+        imagePath;
+
+
+      document
+        .querySelectorAll(".thumbnail")
+        .forEach(
+          thumbnail => {
+
+            thumbnail.classList.remove(
+              "active"
+            );
+
+          }
+        );
+
+
+      clickedThumbnail.classList.add(
+        "active"
+      );
+
+    }
+
+
+    /* =========================
+       カレンダーへ移動
+    ========================= */
+
+    function scrollToCalendar() {
+
+      const calendar =
+        document.querySelector(
+          ".calendar-card"
+        );
+
+
+      if (calendar) {
+
+        calendar.scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
+
+      }
+
+    }
+
+
+    /* =========================
+       カレンダー
+    ========================= */
+
+    let currentDate =
+      new Date();
+
+    let selectedDate =
+      null;
 
 
     /*
-      ここに予約済みの日付を入れます。
+      予約済みの日付
 
-      例：
-
-      "2026-09-20"
-
-      とすると、その日は「×」になります。
+      必要になったら
+      ここを書き換えます。
     */
 
     const reservedDates = [
@@ -1429,7 +1565,11 @@
     ];
 
 
-    function formatDate(year, month, day) {
+    function formatDate(
+      year,
+      month,
+      day
+    ) {
 
       return (
         year +
@@ -1445,10 +1585,15 @@
     function renderCalendar() {
 
       const calendar =
-        document.getElementById("calendar");
+        document.getElementById(
+          "calendar"
+        );
+
 
       const monthTitle =
-        document.getElementById("monthTitle");
+        document.getElementById(
+          "monthTitle"
+        );
 
 
       calendar.innerHTML = "";
@@ -1456,6 +1601,7 @@
 
       const year =
         currentDate.getFullYear();
+
 
       const month =
         currentDate.getMonth();
@@ -1466,11 +1612,19 @@
 
 
       const firstDay =
-        new Date(year, month, 1).getDay();
+        new Date(
+          year,
+          month,
+          1
+        ).getDay();
 
 
       const lastDay =
-        new Date(year, month + 1, 0).getDate();
+        new Date(
+          year,
+          month + 1,
+          0
+        ).getDate();
 
 
       const today =
@@ -1488,12 +1642,18 @@
       ) {
 
         const empty =
-          document.createElement("div");
+          document.createElement(
+            "div"
+          );
+
 
         empty.className =
           "calendar-day empty";
 
-        calendar.appendChild(empty);
+
+        calendar.appendChild(
+          empty
+        );
 
       }
 
@@ -1509,7 +1669,9 @@
       ) {
 
         const button =
-          document.createElement("button");
+          document.createElement(
+            "button"
+          );
 
 
         button.className =
@@ -1542,7 +1704,9 @@
             "reserved"
           );
 
-          button.disabled = true;
+
+          button.disabled =
+            true;
 
         }
 
@@ -1577,7 +1741,9 @@
                 "reserved"
               )
             ) {
+
               return;
+
             }
 
 
@@ -1614,12 +1780,14 @@
     }
 
 
-    /*
-      前月
-    */
+    /* =========================
+       前月
+    ========================= */
 
     document
-      .getElementById("prevMonth")
+      .getElementById(
+        "prevMonth"
+      )
       .addEventListener(
         "click",
         function() {
@@ -1628,18 +1796,21 @@
             currentDate.getMonth() - 1
           );
 
+
           renderCalendar();
 
         }
       );
 
 
-    /*
-      次月
-    */
+    /* =========================
+       次月
+    ========================= */
 
     document
-      .getElementById("nextMonth")
+      .getElementById(
+        "nextMonth"
+      )
       .addEventListener(
         "click",
         function() {
@@ -1648,15 +1819,16 @@
             currentDate.getMonth() + 1
           );
 
+
           renderCalendar();
 
         }
       );
 
 
-    /*
-      予約ボタン
-    */
+    /* =========================
+       予約ボタン
+    ========================= */
 
     document
       .getElementById(
@@ -1665,6 +1837,7 @@
       .addEventListener(
         "click",
         function() {
+
 
           if (!selectedDate) {
 
@@ -1685,13 +1858,15 @@
       );
 
 
-    /*
-      初期表示
-    */
+    /* =========================
+       初期表示
+    ========================= */
 
     renderCalendar();
 
   </script>
 
+
 </body>
 </html>
+```
