@@ -774,77 +774,552 @@
     </section>
 
 
-    <!-- =========================
-         車両紹介
-    ========================= -->
+  ```html
+<!-- =========================
+     車両紹介
+========================= -->
 
-    <section
-      class="section"
-      id="vehicles">
+<section
+  class="section vehicle-section"
+  id="vehicles">
 
-      <div class="section-title">
+  <div class="section-title">
 
-        <h2>車両紹介</h2>
+    <h2>車両紹介</h2>
 
-        <p>
-          お客様の用途に合わせた車両をご用意しています
-        </p>
+    <p>
+      フラワースカイレンタカーの車両をご紹介します
+    </p>
 
-      </div>
-
-      <div class="info-grid">
-
-        <div class="info-card">
-
-          <div class="info-icon">🚐</div>
-
-          <h3>
-            ファミリーカー
-          </h3>
-
-          <p>
-            家族旅行やレジャーに。
-            広々とした室内で快適に移動できます。
-          </p>
-
-        </div>
+  </div>
 
 
-        <div class="info-card">
+  <!-- 車両1台 -->
 
-          <div class="info-icon">🚙</div>
+  <div class="vehicle-detail">
 
-          <h3>
-            SUV
-          </h3>
+    <!-- 写真 -->
 
-          <p>
-            アウトドアや遠出にもおすすめ。
-            荷物もしっかり積載できます。
-          </p>
+    <div class="vehicle-gallery">
 
-        </div>
+      <div class="main-photo">
 
+        <!--
+          ここを実際の車両画像に変更
 
-        <div class="info-card">
+          例：
+          <img src="images/car1.jpg" alt="フラワースカイレンタカー">
+        -->
 
-          <div class="info-icon">🚗</div>
-
-          <h3>
-            コンパクトカー
-          </h3>
-
-          <p>
-            街中での利用や短時間のレンタルに。
-            扱いやすく便利な車両です。
-          </p>
-
-        </div>
+        <img
+          id="mainVehicleImage"
+          src="images/car1.jpg"
+          alt="フラワースカイレンタカー 車両"
+        >
 
       </div>
 
-    </section>
 
+      <!-- サムネイル -->
+
+      <div class="thumbnail-list">
+
+        <button
+          class="thumbnail active"
+          onclick="changeVehicleImage('images/car1.jpg', this)">
+
+          <img
+            src="images/car1.jpg"
+            alt="車両写真1"
+          >
+
+        </button>
+
+
+        <button
+          class="thumbnail"
+          onclick="changeVehicleImage('images/car2.jpg', this)">
+
+          <img
+            src="images/car2.jpg"
+            alt="車両写真2"
+          >
+
+        </button>
+
+
+        <button
+          class="thumbnail"
+          onclick="changeVehicleImage('images/car3.jpg', this)">
+
+          <img
+            src="images/car3.jpg"
+            alt="車両写真3"
+          >
+
+        </button>
+
+
+        <button
+          class="thumbnail"
+          onclick="changeVehicleImage('images/car4.jpg', this)">
+
+          <img
+            src="images/car4.jpg"
+            alt="車両写真4"
+          >
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- 車両情報 -->
+
+    <div class="vehicle-detail-info">
+
+      <span class="vehicle-category">
+        ミニバン
+      </span>
+
+
+      <h3>
+        トヨタ ヴォクシー
+      </h3>
+
+
+      <p class="vehicle-description">
+
+        ご家族でのお出かけや旅行におすすめの
+        ゆったりとしたミニバンです。
+        広い室内空間と十分な荷室を備え、
+        4人家族での旅行にも快適にご利用いただけます。
+
+      </p>
+
+
+      <!-- スペック -->
+
+      <h4>
+        車両スペック
+      </h4>
+
+
+      <div class="spec-table">
+
+        <div class="spec-row">
+          <span>メーカー</span>
+          <strong>トヨタ</strong>
+        </div>
+
+        <div class="spec-row">
+          <span>車種</span>
+          <strong>ヴォクシー</strong>
+        </div>
+
+        <div class="spec-row">
+          <span>乗車定員</span>
+          <strong>7名</strong>
+        </div>
+
+        <div class="spec-row">
+          <span>駆動方式</span>
+          <strong>2WD</strong>
+        </div>
+
+        <div class="spec-row">
+          <span>燃料</span>
+          <strong>ガソリン</strong>
+        </div>
+
+        <div class="spec-row">
+          <span>トランスミッション</span>
+          <strong>CVT</strong>
+        </div>
+
+        <div class="spec-row">
+          <span>カーナビ</span>
+          <strong>あり</strong>
+        </div>
+
+        <div class="spec-row">
+          <span>ETC</span>
+          <strong>あり</strong>
+        </div>
+
+      </div>
+
+
+      <button
+        class="vehicle-reserve-button"
+        onclick="scrollToCalendar()">
+
+        この車を予約する
+
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+```
+
+そして、今のCSSの最後あたりに**これを追加**。
+
+```css
+/* =========================
+   車両詳細
+========================= */
+
+.vehicle-detail {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 45px;
+
+  background: white;
+  border-radius: 24px;
+  padding: 30px;
+
+  border: 1px solid #e3eef3;
+
+  box-shadow:
+    0 10px 35px rgba(29, 108, 142, 0.10);
+}
+
+
+/* =========================
+   車両ギャラリー
+========================= */
+
+.vehicle-gallery {
+  min-width: 0;
+}
+
+.main-photo {
+  width: 100%;
+  height: 430px;
+
+  overflow: hidden;
+  border-radius: 18px;
+
+  background: #eef7fa;
+}
+
+.main-photo img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+
+  transition: opacity 0.2s ease;
+}
+
+
+/* サムネイル */
+
+.thumbnail-list {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 10px;
+
+  margin-top: 12px;
+}
+
+.thumbnail {
+  border: 2px solid transparent;
+
+  padding: 0;
+
+  background: none;
+
+  border-radius: 10px;
+
+  overflow: hidden;
+
+  cursor: pointer;
+
+  aspect-ratio: 4 / 3;
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+.thumbnail:hover {
+  opacity: 0.8;
+}
+
+.thumbnail.active {
+  border-color: #1595d0;
+}
+
+
+/* =========================
+   車両情報
+========================= */
+
+.vehicle-detail-info {
+  padding: 10px 5px;
+}
+
+.vehicle-category {
+  display: inline-block;
+
+  background: #edf8fc;
+
+  color: #1687b7;
+
+  padding: 5px 14px;
+
+  border-radius: 20px;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  margin-bottom: 12px;
+}
+
+.vehicle-detail-info h3 {
+  font-size: 32px;
+
+  color: #267c9f;
+
+  margin-bottom: 15px;
+}
+
+.vehicle-description {
+  color: #666;
+
+  font-size: 14px;
+
+  line-height: 1.9;
+
+  margin-bottom: 25px;
+}
+
+
+/* =========================
+   スペック
+========================= */
+
+.vehicle-detail-info h4 {
+  font-size: 20px;
+
+  color: #333;
+
+  margin-bottom: 12px;
+
+  padding-bottom: 8px;
+
+  border-bottom: 2px solid #e7f2f6;
+}
+
+.spec-table {
+  border-top: 1px solid #e5e5e5;
+}
+
+.spec-row {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  padding: 9px 0;
+
+  border-bottom: 1px solid #eeeeee;
+
+  font-size: 13px;
+}
+
+.spec-row span {
+  color: #777;
+}
+
+.spec-row strong {
+  color: #333;
+
+  font-weight: 600;
+}
+
+
+/* =========================
+   予約ボタン
+========================= */
+
+.vehicle-reserve-button {
+  width: 100%;
+
+  margin-top: 25px;
+
+  padding: 15px;
+
+  border: none;
+
+  border-radius: 13px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #1595d0,
+      #44b7dd
+    );
+
+  color: white;
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.vehicle-reserve-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 7px 18px
+    rgba(21, 149, 208, 0.25);
+}
+
+
+/* =========================
+   スマホ
+========================= */
+
+@media (max-width: 950px) {
+
+  .vehicle-detail {
+    grid-template-columns: 1fr;
+
+    gap: 30px;
+
+    padding: 20px;
+  }
+
+  .main-photo {
+    height: 400px;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .vehicle-detail {
+    padding: 15px;
+
+    border-radius: 18px;
+  }
+
+  .main-photo {
+    height: 280px;
+  }
+
+  .vehicle-detail-info h3 {
+    font-size: 26px;
+  }
+
+  .thumbnail-list {
+    gap: 6px;
+  }
+
+}
+```
+
+最後に、`</body>` の直前あたりに**このJavaScriptを追加**。
+
+```html
+<script>
+
+  /*
+    車両写真を切り替える
+  */
+
+  function changeVehicleImage(
+    imagePath,
+    clickedThumbnail
+  ) {
+
+    const mainImage =
+      document.getElementById(
+        "mainVehicleImage"
+      );
+
+    mainImage.src =
+      imagePath;
+
+
+    /*
+      すべてのサムネイルから
+      activeを外す
+    */
+
+    document
+      .querySelectorAll(
+        ".thumbnail"
+      )
+      .forEach(
+        thumbnail => {
+
+          thumbnail.classList.remove(
+            "active"
+          );
+
+        }
+      );
+
+
+    /*
+      選択した写真をactive
+    */
+
+    clickedThumbnail.classList.add(
+      "active"
+    );
+
+  }
+
+
+  /*
+    「この車を予約する」を
+    カレンダーまで移動
+  */
+
+  function scrollToCalendar() {
+
+    const calendar =
+      document.querySelector(
+        ".calendar-card"
+      );
+
+    if (calendar) {
+
+      calendar.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+
+    }
+
+  }
+
+</script>
+```
 
     <!-- =========================
          料金
