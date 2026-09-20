@@ -747,6 +747,59 @@
     }
 
 
+    /* =========================
+       大人・子ども
+    ========================= */
+
+    .people-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 15px;
+
+    }
+
+
+    .people-item label {
+
+      font-size: 14px;
+
+    }
+
+
+    .people-note {
+
+      margin-top: 8px;
+
+      font-size: 12px;
+
+      color: #777;
+
+    }
+
+
+    .total-people {
+
+      margin-top: 10px;
+
+      padding: 10px 14px;
+
+      border-radius: 10px;
+
+      background: #f4fbff;
+
+      color: #1897d7;
+
+      font-weight: bold;
+
+      text-align: center;
+
+    }
+
+
     .submit-button {
 
       width: 100%;
@@ -978,12 +1031,21 @@
 
       .reservation-box {
 
-        padding: 25px 18px;
+        padding:
+          25px 18px;
 
       }
 
 
       .date-time {
+
+        grid-template-columns:
+          1fr;
+
+      }
+
+
+      .people-grid {
 
         grid-template-columns:
           1fr;
@@ -1675,7 +1737,9 @@
 
 
 
-          <!-- 人数 -->
+          <!-- =========================
+               大人・子ども
+          ========================= -->
 
           <div class="form-group">
 
@@ -1687,32 +1751,92 @@
             </label>
 
 
-            <select
-              id="people"
-              required
+            <div class="people-grid">
+
+
+              <div class="people-item">
+
+                <label for="adults">
+                  大人
+                </label>
+
+                <select
+                  id="adults"
+                  required
+                >
+
+                  <option value="1">
+                    1名
+                  </option>
+
+                  <option value="2">
+                    2名
+                  </option>
+
+                  <option value="3">
+                    3名
+                  </option>
+
+                  <option value="4">
+                    4名
+                  </option>
+
+                </select>
+
+              </div>
+
+
+
+              <div class="people-item">
+
+                <label for="children">
+                  子ども
+                </label>
+
+                <select
+                  id="children"
+                  required
+                >
+
+                  <option value="0">
+                    0名
+                  </option>
+
+                  <option value="1">
+                    1名
+                  </option>
+
+                  <option value="2">
+                    2名
+                  </option>
+
+                  <option value="3">
+                    3名
+                  </option>
+
+                  <option value="4">
+                    4名
+                  </option>
+
+                </select>
+
+              </div>
+
+
+            </div>
+
+
+            <div class="people-note">
+              ※車両定員は4名です。
+            </div>
+
+
+            <div
+              class="total-people"
+              id="totalPeople"
             >
-
-              <option value="">
-                選択してください
-              </option>
-
-              <option value="1">
-                1名
-              </option>
-
-              <option value="2">
-                2名
-              </option>
-
-              <option value="3">
-                3名
-              </option>
-
-              <option value="4">
-                4名
-              </option>
-
-            </select>
+              合計：1名
+            </div>
 
           </div>
 
@@ -1806,12 +1930,67 @@
 
 
   <!-- =========================
-       予約送信処理
-       Googleフォームへ自動送信
+       JavaScript
   ========================= -->
 
   <script>
 
+
+    /* =========================
+       人数表示
+    ========================= */
+
+    const adultsSelect =
+      document.getElementById("adults");
+
+
+    const childrenSelect =
+      document.getElementById("children");
+
+
+    const totalPeople =
+      document.getElementById("totalPeople");
+
+
+    function updateTotalPeople() {
+
+      const adults =
+        Number(adultsSelect.value);
+
+      const children =
+        Number(childrenSelect.value);
+
+      const total =
+        adults + children;
+
+
+      totalPeople.textContent =
+        "合計：" +
+        total +
+        "名";
+
+    }
+
+
+    adultsSelect.addEventListener(
+      "change",
+      updateTotalPeople
+    );
+
+
+    childrenSelect.addEventListener(
+      "change",
+      updateTotalPeople
+    );
+
+
+    updateTotalPeople();
+
+
+
+    /* =========================
+       予約送信
+    ========================= */
 
     function submitReservation(event) {
 
@@ -1819,35 +1998,100 @@
 
 
       /* =========================
-         サイトの入力内容を取得
+         入力内容取得
       ========================= */
 
       const startDate =
-        document.getElementById("startDate").value;
+        document.getElementById(
+          "startDate"
+        ).value;
+
 
       const startTime =
-        document.getElementById("startTime").value;
+        document.getElementById(
+          "startTime"
+        ).value;
+
 
       const returnDate =
-        document.getElementById("returnDate").value;
+        document.getElementById(
+          "returnDate"
+        ).value;
+
 
       const returnTime =
-        document.getElementById("returnTime").value;
+        document.getElementById(
+          "returnTime"
+        ).value;
+
 
       const name =
-        document.getElementById("customerName").value;
+        document.getElementById(
+          "customerName"
+        ).value;
+
 
       const phone =
-        document.getElementById("phone").value;
+        document.getElementById(
+          "phone"
+        ).value;
+
 
       const email =
-        document.getElementById("email").value;
+        document.getElementById(
+          "email"
+        ).value;
 
-      const people =
-        document.getElementById("people").value;
+
+      const adults =
+        document.getElementById(
+          "adults"
+        ).value;
+
+
+      const children =
+        document.getElementById(
+          "children"
+        ).value;
+
 
       const message =
-        document.getElementById("message").value;
+        document.getElementById(
+          "message"
+        ).value;
+
+
+
+      /* =========================
+         人数チェック
+      ========================= */
+
+      const total =
+        Number(adults) +
+        Number(children);
+
+
+      if (total < 1) {
+
+        alert(
+          "利用人数を入力してください。"
+        );
+
+        return;
+
+      }
+
+
+      if (total > 4) {
+
+        alert(
+          "車両定員は4名です。\n\n" +
+          "大人と子どもの合計を4名以内にしてください。"
+        );
+
+        return;
+
+      }
 
 
 
@@ -1868,7 +2112,7 @@
 
 
       /* =========================
-         利用時間を計算
+         利用時間計算
       ========================= */
 
       const start =
@@ -1890,6 +2134,22 @@
       const hours =
         (end - start) /
         (1000 * 60 * 60);
+
+
+
+      /* =========================
+         時間チェック
+      ========================= */
+
+      if (hours <= 0) {
+
+        alert(
+          "返却日時は利用開始日時より後にしてください。"
+        );
+
+        return;
+
+      }
 
 
 
@@ -1931,7 +2191,7 @@
 
 
       /* =========================
-         Googleフォーム設定
+         GoogleフォームURL
       ========================= */
 
       const googleFormUrl =
@@ -1940,11 +2200,13 @@
 
 
       /* =========================
-         Googleフォーム送信用iframe
+         iframe作成
       ========================= */
 
       const iframe =
-        document.createElement("iframe");
+        document.createElement(
+          "iframe"
+        );
 
 
       iframe.name =
@@ -1962,11 +2224,13 @@
 
 
       /* =========================
-         Googleフォーム送信用フォーム
+         送信用フォーム作成
       ========================= */
 
       const form =
-        document.createElement("form");
+        document.createElement(
+          "form"
+        );
 
 
       form.method =
@@ -1987,7 +2251,7 @@
 
 
       /* =========================
-         hidden項目追加関数
+         hidden項目追加
       ========================= */
 
       function addField(
@@ -2022,7 +2286,7 @@
 
 
       /* =========================
-         Googleフォームへ入力
+         Googleフォームへ送信
       ========================= */
 
 
@@ -2070,7 +2334,7 @@
 
       addField(
         "entry.501603723",
-        people
+        adults
       );
 
 
@@ -2078,7 +2342,7 @@
 
       addField(
         "entry.421824229",
-        "0"
+        children
       );
 
 
@@ -2092,7 +2356,7 @@
 
       // 住所
 
-      // サイト側に住所欄がないため空欄
+      // サイト側には住所欄がないため空欄
 
       addField(
         "entry.1518566633",
@@ -2101,7 +2365,7 @@
 
 
       /* =========================
-         時間と要望
+         時間・その他要望
       ========================= */
 
       const detailMessage =
@@ -2139,7 +2403,7 @@
 
 
       /* =========================
-         Googleフォームへ送信
+         Googleフォーム送信
       ========================= */
 
       form.submit();
@@ -2147,11 +2411,12 @@
 
 
       /* =========================
-         お客様へ完了表示
+         完了表示
       ========================= */
 
       setTimeout(
         function() {
+
 
           alert(
 
@@ -2171,6 +2436,18 @@
 
             "\n" +
 
+            "大人：" +
+            adults +
+            "名" +
+
+            "\n" +
+
+            "子ども：" +
+            children +
+            "名" +
+
+            "\n" +
+
             "お名前：" +
             name +
 
@@ -2182,7 +2459,7 @@
 
 
           /* =========================
-             サイト側フォームをリセット
+             フォームリセット
           ========================= */
 
           document
@@ -2190,6 +2467,9 @@
               "#reservation form"
             )
             .reset();
+
+
+          updateTotalPeople();
 
 
           iframe.remove();
@@ -2202,7 +2482,6 @@
       );
 
     }
-
 
   </script>
 
