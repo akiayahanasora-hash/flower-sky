@@ -1,574 +1,862 @@
-```html
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>フラワースカイ｜レンタカー</title>
 
+
   <style>
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+
     body {
-      font-family: "Noto Sans JP", sans-serif;
+
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Helvetica Neue",
+        "Hiragino Kaku Gothic ProN",
+        "Yu Gothic",
+        Meiryo,
+        sans-serif;
+
       color: #333;
-      background: #f8fbff;
+
+      background:
+        linear-gradient(
+          180deg,
+          #eaf8ff 0%,
+          #ffffff 35%,
+          #fffdf5 100%
+        );
+
       line-height: 1.7;
+
     }
 
+
     a {
-      text-decoration: none;
       color: inherit;
+      text-decoration: none;
     }
+
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
 
     /* =========================
        ヘッダー
     ========================= */
 
     header {
-      background: rgba(255,255,255,0.95);
-      border-bottom: 1px solid #e5eef5;
+
       position: sticky;
       top: 0;
       z-index: 1000;
+
+      background: rgba(255,255,255,0.95);
+
+      backdrop-filter: blur(8px);
+
+      border-bottom:
+        1px solid #e5e5e5;
+
     }
+
 
     .header-inner {
+
       max-width: 1200px;
-      margin: auto;
-      height: 75px;
+
+      margin: 0 auto;
+
+      padding:
+        15px 20px;
+
       display: flex;
-      align-items: center;
+
       justify-content: space-between;
-      padding: 0 20px;
+
+      align-items: center;
+
+      gap: 20px;
+
     }
+
 
     .logo {
+
       font-size: 24px;
-      font-weight: bold;
-      color: #2587c9;
-      letter-spacing: 1px;
+
+      font-weight: 800;
+
+      color: #1897d7;
+
+      white-space: nowrap;
+
     }
+
+
+    .logo span {
+      color: #ff6fae;
+    }
+
 
     nav {
+
       display: flex;
+
       align-items: center;
-      gap: 28px;
+
+      gap: 22px;
+
       font-size: 14px;
+
+      font-weight: 600;
+
     }
 
-    nav a {
-      transition: 0.2s;
-    }
 
     nav a:hover {
-      color: #2587c9;
+      color: #1897d7;
     }
 
-    .login-btn {
-      background: #2587c9;
-      color: white;
-      padding: 9px 18px;
+
+    .login-button {
+
+      padding:
+        8px 16px;
+
       border-radius: 20px;
+
+      background: #1897d7;
+
+      color: white;
+
     }
+
+
+    .login-button:hover {
+      color: white;
+      opacity: 0.85;
+    }
+
 
     /* =========================
        ヒーロー
     ========================= */
 
     .hero {
+
       max-width: 1200px;
-      margin: 35px auto;
-      padding: 0 20px;
-      display: grid;
-      grid-template-columns: 1.4fr 0.8fr;
-      gap: 25px;
+
+      margin:
+        30px auto 0;
+
+      padding:
+        0 20px;
+
     }
 
-    .vehicle-image {
+
+    .hero-box {
+
       position: relative;
-      min-height: 520px;
-      background: linear-gradient(135deg, #78c9f5, #d8f2ff);
-      border-radius: 24px;
+
+      min-height: 500px;
+
+      border-radius: 28px;
+
       overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+
+      background:
+
+        linear-gradient(
+          135deg,
+          #70c9f4,
+          #d9f5ff
+        );
+
+      box-shadow:
+        0 15px 40px rgba(0,0,0,0.12);
+
     }
 
-    .vehicle-placeholder {
-      font-size: 130px;
-    }
 
-    .vehicle-overlay {
+    .hero-image {
+
       position: absolute;
-      left: 30px;
-      bottom: 30px;
-      background: rgba(0,0,0,0.55);
+
+      inset: 0;
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
       color: white;
-      padding: 22px 25px;
-      border-radius: 15px;
-      max-width: 470px;
+
+      font-size: 24px;
+
+      font-weight: bold;
+
+      background:
+        linear-gradient(
+          rgba(0,130,200,0.15),
+          rgba(0,100,180,0.25)
+        );
+
     }
 
-    .vehicle-overlay h1 {
-      font-size: 30px;
-      margin-bottom: 8px;
+
+    .hero-image-text {
+      text-align: center;
+      padding: 20px;
     }
 
-    .vehicle-overlay p {
-      font-size: 15px;
+
+    .hero-image-text small {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 10px;
+      opacity: 0.9;
     }
+
+
+    .hero-content {
+
+      position: relative;
+
+      z-index: 2;
+
+      min-height: 500px;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      gap: 30px;
+
+      padding: 50px;
+
+    }
+
+
+    .hero-copy {
+
+      color: white;
+
+      max-width: 550px;
+
+      text-shadow:
+        0 2px 8px rgba(0,0,0,0.25);
+
+    }
+
+
+    .hero-copy h1 {
+
+      font-size: 48px;
+
+      line-height: 1.25;
+
+      margin-bottom: 15px;
+
+    }
+
+
+    .hero-copy p {
+
+      font-size: 20px;
+
+      font-weight: 600;
+
+    }
+
 
     /* =========================
        カレンダー
     ========================= */
 
-    .calendar-box {
+    .calendar {
+
+      width: 340px;
+
       background: white;
-      border-radius: 24px;
-      padding: 25px;
-      box-shadow: 0 8px 30px rgba(30,100,150,0.08);
+
+      border-radius: 20px;
+
+      padding: 22px;
+
+      box-shadow:
+        0 12px 30px rgba(0,0,0,0.18);
+
     }
 
-    .calendar-title {
-      font-size: 22px;
-      font-weight: bold;
-      margin-bottom: 5px;
+
+    .calendar h3 {
+
+      text-align: center;
+
+      color: #1897d7;
+
+      margin-bottom: 15px;
+
     }
 
-    .calendar-subtitle {
+
+    .calendar-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(7, 1fr);
+
+      gap: 5px;
+
+      text-align: center;
+
       font-size: 13px;
-      color: #777;
-      margin-bottom: 20px;
+
     }
+
+
+    .calendar-grid div {
+
+      padding: 7px 2px;
+
+      border-radius: 7px;
+
+    }
+
 
     .calendar-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 15px;
-    }
-
-    .calendar-header button {
-      border: none;
-      background: #eef8ff;
-      color: #2587c9;
-      width: 35px;
-      height: 35px;
-      border-radius: 50%;
-      cursor: pointer;
-    }
-
-    #monthLabel {
       font-weight: bold;
-    }
-
-    .calendar-week,
-    .calendar-days {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 5px;
-      text-align: center;
-    }
-
-    .calendar-week div {
-      font-size: 12px;
       color: #777;
-      padding-bottom: 5px;
     }
 
-    .day {
-      padding: 8px 2px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 13px;
-    }
 
-    .day:hover {
-      background: #eaf7ff;
-    }
+    .reserved {
 
-    .day.empty {
-      cursor: default;
-    }
+      background: #ff7777;
 
-    .day.reserved {
-      background: #ffdede;
-      color: #d44;
-      cursor: not-allowed;
-    }
-
-    .day.selected {
-      background: #2587c9;
       color: white;
+
+      font-weight: bold;
+
     }
+
 
     .calendar-note {
-      margin-top: 15px;
+
+      margin-top: 12px;
+
       font-size: 12px;
+
+      text-align: center;
+
       color: #777;
+
     }
 
-    .reserve-btn {
-      width: 100%;
-      margin-top: 18px;
-      padding: 13px;
-      border: none;
-      border-radius: 10px;
-      background: #2587c9;
-      color: white;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .reserve-btn:hover {
-      background: #176da8;
-    }
 
     /* =========================
        共通セクション
     ========================= */
 
-    .section {
+    section {
+
       max-width: 1100px;
-      margin: 80px auto;
-      padding: 0 20px;
+
+      margin:
+        80px auto;
+
+      padding:
+        0 20px;
+
     }
+
 
     .section-title {
+
       text-align: center;
-      margin-bottom: 40px;
+
+      margin-bottom: 35px;
+
     }
 
+
     .section-title h2 {
-      font-size: 30px;
-      color: #2587c9;
+
+      font-size: 34px;
+
+      color: #1897d7;
+
       margin-bottom: 8px;
+
     }
+
 
     .section-title p {
       color: #777;
-      font-size: 14px;
     }
+
 
     /* =========================
        車両紹介
     ========================= */
 
-    .vehicle-detail {
+    .vehicle-card {
+
       background: white;
-      border-radius: 24px;
+
+      border-radius: 25px;
+
       padding: 30px;
-      box-shadow: 0 8px 30px rgba(30,100,150,0.08);
+
+      box-shadow:
+        0 10px 30px rgba(0,0,0,0.08);
+
     }
 
-    .vehicle-main {
+
+    .vehicle-photos {
+
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 35px;
-      align-items: start;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 15px;
+
+      margin-bottom: 30px;
+
     }
 
-    .main-photo {
-      width: 100%;
-      height: 350px;
-      background: #eef8ff;
-      border-radius: 15px;
-      object-fit: cover;
-    }
 
-    .photo-placeholder {
-      height: 350px;
-      border-radius: 15px;
-      background: linear-gradient(135deg, #e1f5ff, #f8fdff);
+    .vehicle-photo {
+
+      height: 220px;
+
+      border-radius: 16px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #dff6ff,
+          #b9e8ff
+        );
+
       display: flex;
-      justify-content: center;
+
       align-items: center;
-      font-size: 100px;
+
+      justify-content: center;
+
+      color: #1897d7;
+
+      font-weight: bold;
+
     }
 
-    .thumbnails {
+
+    .vehicle-info {
+
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-      margin-top: 10px;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 30px;
+
     }
 
-    .thumbnail {
-      height: 75px;
-      border-radius: 10px;
-      background: #eef8ff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      font-size: 28px;
-    }
 
     .vehicle-info h3 {
+
       font-size: 28px;
-      margin-bottom: 15px;
+
+      color: #333;
+
+      margin-bottom: 8px;
+
     }
+
 
     .vehicle-info p {
       color: #666;
-      margin-bottom: 20px;
     }
 
-    .spec-table {
-      width: 100%;
-      border-collapse: collapse;
+
+    .spec-list {
+
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 10px;
+
+      margin-top: 15px;
+
     }
 
-    .spec-table th,
-    .spec-table td {
-      padding: 10px;
-      border-bottom: 1px solid #e8eef2;
-      text-align: left;
+
+    .spec-item {
+
+      background: #f4fbff;
+
+      padding: 10px 14px;
+
+      border-radius: 10px;
+
       font-size: 14px;
+
     }
 
-    .spec-table th {
-      width: 38%;
-      color: #666;
-      font-weight: normal;
-      background: #f8fbfd;
+
+    .spec-item strong {
+      color: #1897d7;
     }
+
 
     /* =========================
-       料金表
+       料金
     ========================= */
 
-    .price-area {
-      max-width: 900px;
-      margin: auto;
+    .price-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 15px;
+
     }
 
-    .price-table {
-      width: 100%;
-      border-collapse: separate;
-      border-spacing: 0;
-      overflow: hidden;
+
+    .price-card {
+
+      background: white;
+
       border-radius: 18px;
-      background: white;
-      box-shadow: 0 8px 30px rgba(30,100,150,0.08);
-    }
 
-    .price-table th,
-    .price-table td {
-      padding: 20px;
+      padding: 25px 15px;
+
       text-align: center;
-      border-bottom: 1px solid #edf1f4;
+
+      box-shadow:
+        0 8px 25px rgba(0,0,0,0.07);
+
     }
 
-    .price-table th {
-      background: #2587c9;
-      color: white;
-      font-size: 15px;
+
+    .price-card h3 {
+
+      color: #1897d7;
+
+      margin-bottom: 10px;
+
     }
 
-    .price-table td:first-child {
-      font-weight: bold;
-      color: #555;
+
+    .price {
+
+      font-size: 28px;
+
+      font-weight: 800;
+
     }
 
-    .price-table td:last-child {
-      font-size: 22px;
-      font-weight: bold;
-      color: #2587c9;
-    }
 
-    .price-table tr:last-child td {
-      border-bottom: none;
-    }
+    .price-card p {
 
-    .price-notes {
-      margin-top: 20px;
-      padding: 20px;
-      background: white;
-      border-radius: 15px;
-      color: #666;
+      color: #777;
+
       font-size: 13px;
+
     }
 
-    .price-notes p {
-      margin-bottom: 5px;
-    }
 
     /* =========================
        ご利用の流れ
     ========================= */
 
-    .flow-list {
+    .flow {
+
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
       gap: 20px;
+
     }
 
-    .flow-card {
+
+    .flow-item {
+
       background: white;
-      padding: 30px 20px;
+
       border-radius: 18px;
+
+      padding: 25px 15px;
+
       text-align: center;
-      box-shadow: 0 8px 25px rgba(30,100,150,0.06);
+
+      box-shadow:
+        0 8px 25px rgba(0,0,0,0.06);
+
     }
+
 
     .flow-number {
-      width: 45px;
-      height: 45px;
+
+      width: 42px;
+
+      height: 42px;
+
+      margin:
+        0 auto 12px;
+
       border-radius: 50%;
-      background: #2587c9;
+
+      background: #1897d7;
+
       color: white;
+
       display: flex;
+
       align-items: center;
+
       justify-content: center;
-      margin: 0 auto 15px;
+
       font-weight: bold;
+
     }
 
-    .flow-card h3 {
-      margin-bottom: 8px;
-    }
-
-    .flow-card p {
-      font-size: 13px;
-      color: #777;
-    }
 
     /* =========================
        予約フォーム
     ========================= */
 
     .reservation-box {
+
+      max-width: 800px;
+
+      margin: 0 auto;
+
       background: white;
-      border-radius: 24px;
+
+      border-radius: 25px;
+
       padding: 35px;
-      box-shadow: 0 8px 30px rgba(30,100,150,0.08);
-      max-width: 850px;
-      margin: auto;
+
+      box-shadow:
+        0 10px 30px rgba(0,0,0,0.08);
+
     }
 
-    .reservation-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
 
     .form-group {
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
 
-    .form-group.full {
-      grid-column: 1 / -1;
-    }
 
     .form-group label {
+
       display: block;
-      font-weight: bold;
-      font-size: 14px;
+
       margin-bottom: 7px;
-      color: #444;
-    }
 
-    .form-group label span {
-      color: #e05a5a;
-      font-size: 12px;
-      margin-left: 5px;
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      padding: 12px 14px;
-      border: 1px solid #dce7ed;
-      border-radius: 10px;
-      font-size: 14px;
-      font-family: inherit;
-      background: #fbfdff;
-    }
-
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: #2587c9;
-      background: white;
-    }
-
-    .form-group textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    .reservation-submit {
-      width: 100%;
-      margin-top: 10px;
-      padding: 15px;
-      border: none;
-      border-radius: 12px;
-      background: #2587c9;
-      color: white;
-      font-size: 17px;
       font-weight: bold;
-      cursor: pointer;
+
     }
 
-    .reservation-submit:hover {
-      background: #176da8;
-    }
 
-    .reservation-note {
-      margin-top: 15px;
+    .required {
+
+      color: #ff4d6d;
+
       font-size: 12px;
-      color: #777;
-      text-align: center;
+
+      margin-left: 5px;
+
     }
+
+
+    input,
+    select,
+    textarea {
+
+      width: 100%;
+
+      padding:
+        12px 14px;
+
+      border:
+        1px solid #ddd;
+
+      border-radius: 10px;
+
+      font-size: 16px;
+
+      background: white;
+
+    }
+
+
+    textarea {
+
+      min-height: 120px;
+
+      resize: vertical;
+
+    }
+
+
+    .date-time {
+
+      display: grid;
+
+      grid-template-columns:
+        1fr 150px;
+
+      gap: 10px;
+
+    }
+
+
+    .submit-button {
+
+      width: 100%;
+
+      padding:
+        16px;
+
+      border: none;
+
+      border-radius: 12px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #1897d7,
+          #4ab7ed
+        );
+
+      color: white;
+
+      font-size: 18px;
+
+      font-weight: bold;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 8px 20px rgba(24,151,215,0.25);
+
+    }
+
+
+    .submit-button:hover {
+
+      opacity: 0.9;
+
+      transform:
+        translateY(-1px);
+
+    }
+
+
+    .form-note {
+
+      margin-top: 12px;
+
+      font-size: 12px;
+
+      color: #777;
+
+      text-align: center;
+
+    }
+
 
     /* =========================
        問い合わせ
     ========================= */
 
     .contact-box {
-      background: white;
-      border-radius: 22px;
-      padding: 40px;
+
       text-align: center;
-      box-shadow: 0 8px 30px rgba(30,100,150,0.08);
-    }
 
-    .contact-box p {
-      color: #666;
-      margin-bottom: 20px;
-    }
+      background: #eaf8ff;
 
-    .contact-btn {
-      display: inline-block;
-      background: #2587c9;
-      color: white;
-      padding: 13px 30px;
       border-radius: 25px;
+
+      padding: 40px 20px;
+
     }
+
+
+    .contact-box h3 {
+
+      font-size: 25px;
+
+      color: #1897d7;
+
+      margin-bottom: 10px;
+
+    }
+
 
     /* =========================
        フッター
     ========================= */
 
     footer {
+
       margin-top: 80px;
-      padding: 35px 20px;
-      background: #1976ad;
+
+      background: #1897d7;
+
       color: white;
+
       text-align: center;
-      font-size: 13px;
+
+      padding: 35px 20px;
+
     }
+
+
+    footer p {
+
+      font-size: 13px;
+
+      opacity: 0.9;
+
+    }
+
 
     /* =========================
        スマホ
@@ -576,57 +864,182 @@
 
     @media (max-width: 800px) {
 
+
+      .header-inner {
+
+        flex-direction: column;
+
+        gap: 10px;
+
+      }
+
+
       nav {
-        gap: 12px;
-        font-size: 11px;
+
+        width: 100%;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+
+        gap: 10px 15px;
+
+        font-size: 12px;
+
       }
 
-      .login-btn {
-        padding: 7px 10px;
+
+      .hero-box {
+
+        min-height: auto;
+
       }
 
-      .hero {
-        grid-template-columns: 1fr;
+
+      .hero-content {
+
+        min-height: auto;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        padding: 35px 20px;
+
       }
 
-      .vehicle-image {
-        min-height: 400px;
+
+      .hero-copy {
+
+        text-align: center;
+
       }
 
-      .vehicle-main {
-        grid-template-columns: 1fr;
+
+      .hero-copy h1 {
+
+        font-size: 34px;
+
       }
 
-      .flow-list {
-        grid-template-columns: 1fr;
+
+      .hero-copy p {
+
+        font-size: 17px;
+
       }
+
+
+      .calendar {
+
+        width: 100%;
+
+      }
+
+
+      .vehicle-photos {
+
+        grid-template-columns:
+          1fr;
+
+      }
+
+
+      .vehicle-photo {
+
+        height: 200px;
+
+      }
+
+
+      .vehicle-info {
+
+        grid-template-columns:
+          1fr;
+
+      }
+
+
+      .price-grid {
+
+        grid-template-columns:
+          1fr 1fr;
+
+      }
+
+
+      .flow {
+
+        grid-template-columns:
+          1fr 1fr;
+
+      }
+
 
       .reservation-box {
-        padding: 25px 20px;
+
+        padding: 25px 18px;
+
       }
 
-      .reservation-grid {
-        grid-template-columns: 1fr;
-        gap: 0;
+
+      .date-time {
+
+        grid-template-columns:
+          1fr;
+
       }
 
-      .form-group.full {
-        grid-column: auto;
-      }
 
-      .price-table th,
-      .price-table td {
-        padding: 15px 8px;
-      }
-
-      .price-table td:last-child {
-        font-size: 18px;
-      }
     }
+
+
+    @media (max-width: 500px) {
+
+
+      .logo {
+        font-size: 21px;
+      }
+
+
+      .section-title h2 {
+        font-size: 28px;
+      }
+
+
+      .price-grid {
+
+        grid-template-columns:
+          1fr;
+
+      }
+
+
+      .flow {
+
+        grid-template-columns:
+          1fr;
+
+      }
+
+
+      .spec-list {
+
+        grid-template-columns:
+          1fr;
+
+      }
+
+
+    }
+
   </style>
+
 </head>
 
+
 <body>
+
 
   <!-- =========================
        ヘッダー
@@ -637,12 +1050,13 @@
     <div class="header-inner">
 
       <div class="logo">
-        🌸 フラワースカイ
+        フラワー<span>スカイ</span>レンタカー
       </div>
+
 
       <nav>
 
-        <a href="#vehicles">
+        <a href="#vehicle">
           車両紹介
         </a>
 
@@ -655,14 +1069,13 @@
         </a>
 
         <a href="#reservation">
-          予約
-        </a>
-
-        <a href="#contact">
           お問い合わせ
         </a>
 
-        <a href="#" class="login-btn">
+        <a
+          href="#"
+          class="login-button"
+        >
           ログイン
         </a>
 
@@ -673,101 +1086,138 @@
   </header>
 
 
+
+  <!-- =========================
+       ヒーロー
+  ========================= -->
+
   <main>
 
-    <!-- =========================
-         メイン
-    ========================= -->
 
-    <section class="hero">
+    <div class="hero">
 
-      <div class="vehicle-image">
+      <div class="hero-box">
 
-        <div class="vehicle-placeholder">
-          🚐
+
+        <div class="hero-image">
+
+          <div class="hero-image-text">
+
+            <small>
+              車両写真は納車後に掲載予定
+            </small>
+
+            🚐
+
+          </div>
+
         </div>
 
-        <div class="vehicle-overlay">
 
-          <h1>
-            ハイエース 4WD
-          </h1>
+        <div class="hero-content">
 
-          <p>
-            家族旅行からアウトドアまで。
-            ゆったり使える4WDレンタカーです。
-          </p>
+
+          <div class="hero-copy">
+
+            <h1>
+              家族旅行から<br>
+              アウトドアまで
+            </h1>
+
+            <p>
+              ハイエース 4WDで<br>
+              もっと自由な旅へ。
+            </p>
+
+          </div>
+
+
+
+          <!-- カレンダー -->
+
+          <div class="calendar">
+
+            <h3>
+              予約状況
+            </h3>
+
+
+            <div class="calendar-grid">
+
+              <div class="calendar-header">日</div>
+              <div class="calendar-header">月</div>
+              <div class="calendar-header">火</div>
+              <div class="calendar-header">水</div>
+              <div class="calendar-header">木</div>
+              <div class="calendar-header">金</div>
+              <div class="calendar-header">土</div>
+
+
+              <div></div>
+              <div></div>
+              <div>1</div>
+              <div>2</div>
+              <div>3</div>
+              <div>4</div>
+              <div>5</div>
+
+              <div>6</div>
+              <div>7</div>
+              <div>8</div>
+              <div>9</div>
+              <div>10</div>
+              <div>11</div>
+              <div>12</div>
+
+              <div>13</div>
+              <div>14</div>
+              <div>15</div>
+              <div>16</div>
+              <div>17</div>
+              <div>18</div>
+              <div>19</div>
+
+              <div class="reserved">20 ×</div>
+              <div class="reserved">21 ×</div>
+              <div>22</div>
+              <div>23</div>
+              <div>24</div>
+              <div>25</div>
+              <div>26</div>
+
+              <div class="reserved">27 ×</div>
+              <div>28</div>
+              <div>29</div>
+              <div>30</div>
+              <div></div>
+              <div></div>
+              <div></div>
+
+            </div>
+
+
+            <div class="calendar-note">
+
+              × は予約済みの日です
+
+            </div>
+
+          </div>
+
 
         </div>
 
       </div>
 
+    </div>
 
-      <!-- カレンダー -->
-
-      <div class="calendar-box">
-
-        <div class="calendar-title">
-          空車状況
-        </div>
-
-        <div class="calendar-subtitle">
-          ご希望の日付を選択してください
-        </div>
-
-        <div class="calendar-header">
-
-          <button onclick="changeMonth(-1)">
-            ‹
-          </button>
-
-          <div id="monthLabel"></div>
-
-          <button onclick="changeMonth(1)">
-            ›
-          </button>
-
-        </div>
-
-        <div class="calendar-week">
-
-          <div>日</div>
-          <div>月</div>
-          <div>火</div>
-          <div>水</div>
-          <div>木</div>
-          <div>金</div>
-          <div>土</div>
-
-        </div>
-
-        <div
-          class="calendar-days"
-          id="calendarDays">
-        </div>
-
-        <div class="calendar-note">
-          🔴 予約済み　　🔵 選択中
-        </div>
-
-        <button
-          class="reserve-btn"
-          onclick="goToReservation()">
-          この車を予約する
-        </button>
-
-      </div>
-
-    </section>
 
 
     <!-- =========================
          車両紹介
     ========================= -->
 
-    <section
-      class="section vehicle-section"
-      id="vehicles">
+    <section id="vehicle">
 
       <div class="section-title">
 
@@ -776,123 +1226,93 @@
         </h2>
 
         <p>
-          現在ご利用いただけるレンタカー
+          1台だからこそ、しっかり整備してお貸しします。
         </p>
 
       </div>
 
 
-      <div class="vehicle-detail">
+      <div class="vehicle-card">
 
-        <div class="vehicle-main">
+
+        <div class="vehicle-photos">
+
+          <div class="vehicle-photo">
+            車両写真①
+          </div>
+
+          <div class="vehicle-photo">
+            車両写真②
+          </div>
+
+          <div class="vehicle-photo">
+            車両写真③
+          </div>
+
+        </div>
+
+
+        <div class="vehicle-info">
+
 
           <div>
 
-            <div
-              class="photo-placeholder"
-              id="mainPhoto">
-
-              🚐
-
-            </div>
-
-
-            <div class="thumbnails">
-
-              <div
-                class="thumbnail"
-                onclick="changePhoto(1)">
-
-                🚐
-
-              </div>
-
-              <div
-                class="thumbnail"
-                onclick="changePhoto(2)">
-
-                🚐
-
-              </div>
-
-              <div
-                class="thumbnail"
-                onclick="changePhoto(3)">
-
-                🚐
-
-              </div>
-
-              <div
-                class="thumbnail"
-                onclick="changePhoto(4)">
-
-                🚐
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <div class="vehicle-info">
-
             <h3>
-              トヨタ ハイエース
+              ハイエース 4WD
             </h3>
 
             <p>
-              広々とした車内で、家族旅行やアウトドア、
-              長距離移動にもおすすめのレンタカーです。
+              家族旅行からアウトドアまで。
+              大人数での移動にも使いやすい
+              ハイエースをご用意しています。
             </p>
 
+          </div>
 
-            <table class="spec-table">
 
-              <tr>
-                <th>メーカー</th>
-                <td>トヨタ</td>
-              </tr>
+          <div>
 
-              <tr>
-                <th>車種</th>
-                <td>ハイエース</td>
-              </tr>
+            <h3>
+              車両スペック
+            </h3>
 
-              <tr>
-                <th>乗車定員</th>
-                <td>４名</td>
-              </tr>
 
-              <tr>
-                <th>駆動方式</th>
-                <td>４WD</td>
-              </tr>
+            <div class="spec-list">
 
-              <tr>
-                <th>燃料</th>
-                <td>レギュラーガソリン</td>
-              </tr>
+              <div class="spec-item">
+                <strong>車種：</strong>
+                トヨタ ハイエース
+              </div>
 
-              <tr>
-                <th>トランスミッション</th>
-                <td>CVT</td>
-              </tr>
+              <div class="spec-item">
+                <strong>定員：</strong>
+                4名
+              </div>
 
-              <tr>
-                <th>カーナビ</th>
-                <td>あり</td>
-              </tr>
+              <div class="spec-item">
+                <strong>駆動方式：</strong>
+                4WD
+              </div>
 
-              <tr>
-                <th>ETC</th>
-                <td>あり</td>
-              </tr>
+              <div class="spec-item">
+                <strong>燃料：</strong>
+                レギュラーガソリン
+              </div>
 
-            </table>
+              <div class="spec-item">
+                <strong>ミッション：</strong>
+                CVT
+              </div>
+
+              <div class="spec-item">
+                <strong>装備：</strong>
+                ナビ・ETC
+              </div>
+
+            </div>
 
           </div>
+
 
         </div>
 
@@ -901,13 +1321,12 @@
     </section>
 
 
+
     <!-- =========================
-         料金設定
+         料金
     ========================= -->
 
-    <section
-      class="section"
-      id="price">
+    <section id="price">
 
       <div class="section-title">
 
@@ -916,80 +1335,94 @@
         </h2>
 
         <p>
-          シンプルで分かりやすい料金設定
+          シンプルで分かりやすい料金体系です。
         </p>
 
       </div>
 
 
-      <div class="price-area">
-
-        <table class="price-table">
-
-          <thead>
-
-            <tr>
-              <th>利用時間</th>
-              <th>料金（税込）</th>
-            </tr>
-
-          </thead>
-
-          <tbody>
-
-            <tr>
-              <td>24時間</td>
-              <td>18,000円</td>
-            </tr>
-
-            <tr>
-              <td>48時間</td>
-              <td>34,000円</td>
-            </tr>
-
-            <tr>
-              <td>72時間</td>
-              <td>50,000円</td>
-            </tr>
-
-            <tr>
-              <td>延長・延滞</td>
-              <td>1時間 2,000円</td>
-            </tr>
-
-          </tbody>
-
-        </table>
+      <div class="price-grid">
 
 
-        <div class="price-notes">
+        <div class="price-card">
+
+          <h3>
+            24時間
+          </h3>
+
+          <div class="price">
+            ¥18,000
+          </div>
 
           <p>
-            ※ 料金は税込表示です。
-          </p>
-
-          <p>
-            ※ 延長・延滞料金は1時間につき2,000円です。
-          </p>
-
-          <p>
-            ※ 予約状況や貸渡条件については、お問い合わせください。
+            1泊旅行などに
           </p>
 
         </div>
+
+
+        <div class="price-card">
+
+          <h3>
+            48時間
+          </h3>
+
+          <div class="price">
+            ¥34,000
+          </div>
+
+          <p>
+            2泊3日の旅行などに
+          </p>
+
+        </div>
+
+
+        <div class="price-card">
+
+          <h3>
+            72時間
+          </h3>
+
+          <div class="price">
+            ¥50,000
+          </div>
+
+          <p>
+            長めの旅行に
+          </p>
+
+        </div>
+
+
+        <div class="price-card">
+
+          <h3>
+            延滞
+          </h3>
+
+          <div class="price">
+            ¥2,000
+          </div>
+
+          <p>
+            1時間あたり
+          </p>
+
+        </div>
+
 
       </div>
 
     </section>
 
 
+
     <!-- =========================
          ご利用の流れ
     ========================= -->
 
-    <section
-      class="section"
-      id="flow">
+    <section id="flow">
 
       <div class="section-title">
 
@@ -998,77 +1431,98 @@
         </h2>
 
         <p>
-          ご予約から返却まで簡単3ステップ
+          かんたん4ステップ
         </p>
 
       </div>
 
 
-      <div class="flow-list">
+      <div class="flow">
 
-        <div class="flow-card">
+
+        <div class="flow-item">
 
           <div class="flow-number">
             1
           </div>
 
           <h3>
-            予約
+            予約申込み
           </h3>
 
           <p>
-            空車状況を確認して、
-            ご希望の日程を選択してください。
+            予約フォームから
+            必要事項を入力します。
           </p>
 
         </div>
 
 
-        <div class="flow-card">
+        <div class="flow-item">
 
           <div class="flow-number">
             2
           </div>
 
           <h3>
-            貸渡
+            内容確認
           </h3>
 
           <p>
-            ご予約日時に車両をお渡しします。
+            空車状況などを確認し、
+            ご連絡します。
           </p>
 
         </div>
 
 
-        <div class="flow-card">
+        <div class="flow-item">
 
           <div class="flow-number">
             3
           </div>
 
           <h3>
-            返却
+            ご予約確定
           </h3>
 
           <p>
-            ご利用終了後、指定場所へご返却ください。
+            内容確認後、
+            正式に予約確定となります。
           </p>
 
         </div>
+
+
+        <div class="flow-item">
+
+          <div class="flow-number">
+            4
+          </div>
+
+          <h3>
+            ご利用
+          </h3>
+
+          <p>
+            指定日時に車両を
+            お受け取りください。
+          </p>
+
+        </div>
+
 
       </div>
 
     </section>
 
 
+
     <!-- =========================
          予約フォーム
     ========================= -->
 
-    <section
-      class="section"
-      id="reservation">
+    <section id="reservation">
 
       <div class="section-title">
 
@@ -1077,7 +1531,7 @@
         </h2>
 
         <p>
-          ご希望の利用日時とお客様情報をご入力ください。
+          下記フォームからお申し込みください。
         </p>
 
       </div>
@@ -1085,186 +1539,219 @@
 
       <div class="reservation-box">
 
-        <form onsubmit="submitReservation(event)">
 
-          <div class="reservation-grid">
+        <form
+          onsubmit="submitReservation(event)"
+        >
 
 
-            <div class="form-group">
+          <!-- 利用開始 -->
 
-              <label>
-                利用開始日
-                <span>必須</span>
-              </label>
+          <div class="form-group">
+
+            <label>
+              利用開始
+              <span class="required">
+                必須
+              </span>
+            </label>
+
+
+            <div class="date-time">
 
               <input
                 type="date"
                 id="startDate"
-                required>
-
-            </div>
-
-
-            <div class="form-group">
-
-              <label>
-                利用開始時間
-                <span>必須</span>
-              </label>
+                required
+              >
 
               <input
                 type="time"
                 id="startTime"
-                required>
+                required
+              >
 
             </div>
 
+          </div>
 
-            <div class="form-group">
 
-              <label>
-                返却日
-                <span>必須</span>
-              </label>
+
+          <!-- 返却 -->
+
+          <div class="form-group">
+
+            <label>
+              返却
+              <span class="required">
+                必須
+              </span>
+            </label>
+
+
+            <div class="date-time">
 
               <input
                 type="date"
                 id="returnDate"
-                required>
-
-            </div>
-
-
-            <div class="form-group">
-
-              <label>
-                返却時間
-                <span>必須</span>
-              </label>
+                required
+              >
 
               <input
                 type="time"
                 id="returnTime"
-                required>
-
-            </div>
-
-
-            <div class="form-group">
-
-              <label>
-                お名前
-                <span>必須</span>
-              </label>
-
-              <input
-                type="text"
-                id="customerName"
-                placeholder="例：山田 太郎"
-                required>
-
-            </div>
-
-
-            <div class="form-group">
-
-              <label>
-                電話番号
-                <span>必須</span>
-              </label>
-
-              <input
-                type="tel"
-                id="phone"
-                placeholder="例：090-1234-5678"
-                required>
-
-            </div>
-
-
-            <div class="form-group">
-
-              <label>
-                メールアドレス
-                <span>必須</span>
-              </label>
-
-              <input
-                type="email"
-                id="email"
-                placeholder="例：example@email.com"
-                required>
-
-            </div>
-
-
-            <div class="form-group">
-
-              <label>
-                利用人数
-                <span>必須</span>
-              </label>
-
-              <select
-                id="people"
-                required>
-
-                <option value="">
-                  選択してください
-                </option>
-
-                <option value="1">
-                  1名
-                </option>
-
-                <option value="2">
-                  2名
-                </option>
-
-                <option value="3">
-                  3名
-                </option>
-
-                <option value="4">
-                  4名
-                </option>
-
-              </select>
-
-            </div>
-
-
-            <div class="form-group full">
-
-              <label>
-                その他・ご要望
-              </label>
-
-              <textarea
-                id="message"
-                placeholder="ご質問やご要望がございましたらご入力ください。">
-              </textarea>
+                required
+              >
 
             </div>
 
           </div>
 
+
+
+          <!-- 名前 -->
+
+          <div class="form-group">
+
+            <label>
+              お名前
+              <span class="required">
+                必須
+              </span>
+            </label>
+
+            <input
+              type="text"
+              id="customerName"
+              placeholder="例：山田 太郎"
+              required
+            >
+
+          </div>
+
+
+
+          <!-- 電話番号 -->
+
+          <div class="form-group">
+
+            <label>
+              電話番号
+              <span class="required">
+                必須
+              </span>
+            </label>
+
+            <input
+              type="tel"
+              id="phone"
+              placeholder="例：090-1234-5678"
+              required
+            >
+
+          </div>
+
+
+
+          <!-- メール -->
+
+          <div class="form-group">
+
+            <label>
+              メールアドレス
+              <span class="required">
+                必須
+              </span>
+            </label>
+
+            <input
+              type="email"
+              id="email"
+              placeholder="例：example@email.com"
+              required
+            >
+
+          </div>
+
+
+
+          <!-- 人数 -->
+
+          <div class="form-group">
+
+            <label>
+              利用人数
+              <span class="required">
+                必須
+              </span>
+            </label>
+
+
+            <select
+              id="people"
+              required
+            >
+
+              <option value="">
+                選択してください
+              </option>
+
+              <option value="1">
+                1名
+              </option>
+
+              <option value="2">
+                2名
+              </option>
+
+              <option value="3">
+                3名
+              </option>
+
+              <option value="4">
+                4名
+              </option>
+
+            </select>
+
+          </div>
+
+
+
+          <!-- その他 -->
+
+          <div class="form-group">
+
+            <label>
+              その他・ご要望
+            </label>
+
+            <textarea
+              id="message"
+              placeholder="ご質問やご要望があればご入力ください。"
+            ></textarea>
+
+          </div>
+
+
+
+          <!-- 送信 -->
 
           <button
             type="submit"
-            class="reservation-submit">
-
-            予約内容を確認する
-
+            class="submit-button"
+          >
+            予約を申し込む
           </button>
 
 
-          <div class="reservation-note">
+          <div class="form-note">
 
-            ※ このフォームからの送信だけでは予約確定となりません。
+            ※この時点では予約確定ではありません。<br>
             内容を確認後、正式な予約確定のご連絡をいたします。
 
           </div>
+
 
         </form>
 
@@ -1273,46 +1760,31 @@
     </section>
 
 
+
     <!-- =========================
-         お問い合わせ
+         問い合わせ
     ========================= -->
 
-    <section
-      class="section"
-      id="contact">
-
-      <div class="section-title">
-
-        <h2>
-          お問い合わせ
-        </h2>
-
-        <p>
-          ご不明な点がございましたらお気軽にお問い合わせください。
-        </p>
-
-      </div>
-
+    <section>
 
       <div class="contact-box">
 
+        <h3>
+          お問い合わせ
+        </h3>
+
         <p>
-          レンタカーのご予約・料金・車両についてのお問い合わせはこちら
+          ご不明な点がございましたら、
+          お気軽にお問い合わせください。
         </p>
-
-        <a
-          href="mailto:info@example.com"
-          class="contact-btn">
-
-          メールでお問い合わせ
-
-        </a>
 
       </div>
 
     </section>
 
+
   </main>
+
 
 
   <!-- =========================
@@ -1321,285 +1793,69 @@
 
   <footer>
 
-    © 2026 フラワースカイレンタカー
+    <h3>
+      フラワースカイレンタカー
+    </h3>
+
+    <p>
+      © フラワースカイ All Rights Reserved.
+    </p>
 
   </footer>
 
 
+
+  <!-- =========================
+       予約送信処理
+       Googleフォームへ自動送信
+  ========================= -->
+
   <script>
 
-    /* =========================
-       写真切り替え
-    ========================= */
-
-    function changePhoto(number) {
-
-      const mainPhoto =
-        document.getElementById("mainPhoto");
-
-      mainPhoto.innerHTML = "🚐";
-
-    }
-
-
-    /* =========================
-       カレンダー
-    ========================= */
-
-    let currentDate = new Date();
-
-    let selectedDate = null;
-
-
-    const reservedDates = [
-
-      "2026-09-20",
-      "2026-09-21",
-      "2026-09-27",
-      "2026-10-03",
-      "2026-10-04"
-
-    ];
-
-
-    function renderCalendar() {
-
-      const year =
-        currentDate.getFullYear();
-
-      const month =
-        currentDate.getMonth();
-
-
-      document.getElementById(
-        "monthLabel"
-      ).textContent =
-        `${year}年${month + 1}月`;
-
-
-      const firstDay =
-        new Date(
-          year,
-          month,
-          1
-        ).getDay();
-
-
-      const lastDate =
-        new Date(
-          year,
-          month + 1,
-          0
-        ).getDate();
-
-
-      const calendarDays =
-        document.getElementById(
-          "calendarDays"
-        );
-
-
-      calendarDays.innerHTML = "";
-
-
-      for (
-        let i = 0;
-        i < firstDay;
-        i++
-      ) {
-
-        const empty =
-          document.createElement("div");
-
-        empty.className =
-          "day empty";
-
-        calendarDays.appendChild(
-          empty
-        );
-
-      }
-
-
-      for (
-        let day = 1;
-        day <= lastDate;
-        day++
-      ) {
-
-        const div =
-          document.createElement("div");
-
-        div.className =
-          "day";
-
-        div.textContent =
-          day;
-
-
-        const dateString =
-          `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
-
-
-        if (
-          reservedDates.includes(
-            dateString
-          )
-        ) {
-
-          div.classList.add(
-            "reserved"
-          );
-
-        } else {
-
-          div.onclick =
-            function() {
-
-              document
-                .querySelectorAll(
-                  ".day.selected"
-                )
-                .forEach(
-                  el =>
-                    el.classList.remove(
-                      "selected"
-                    )
-                );
-
-
-              div.classList.add(
-                "selected"
-              );
-
-
-              selectedDate =
-                dateString;
-
-            };
-
-        }
-
-
-        calendarDays.appendChild(
-          div
-        );
-
-      }
-
-    }
-
-
-    function changeMonth(amount) {
-
-      currentDate.setMonth(
-        currentDate.getMonth() +
-        amount
-      );
-
-      renderCalendar();
-
-    }
-
-
-    /* =========================
-       予約フォームへ移動
-    ========================= */
-
-    function goToReservation() {
-
-      if (!selectedDate) {
-
-        alert(
-          "まずご希望の日付を選択してください。"
-        );
-
-        return;
-
-      }
-
-
-      document.getElementById(
-        "startDate"
-      ).value =
-        selectedDate;
-
-
-      document.getElementById(
-        "reservation"
-      ).scrollIntoView({
-        behavior: "smooth"
-      });
-
-    }
-
-
-    /* =========================
-       予約フォーム送信
-    ========================= */
 
     function submitReservation(event) {
 
       event.preventDefault();
 
 
-      const startDate =
-        document.getElementById(
-          "startDate"
-        ).value;
+      /* =========================
+         サイトの入力内容を取得
+      ========================= */
 
+      const startDate =
+        document.getElementById("startDate").value;
 
       const startTime =
-        document.getElementById(
-          "startTime"
-        ).value;
-
+        document.getElementById("startTime").value;
 
       const returnDate =
-        document.getElementById(
-          "returnDate"
-        ).value;
-
+        document.getElementById("returnDate").value;
 
       const returnTime =
-        document.getElementById(
-          "returnTime"
-        ).value;
-
+        document.getElementById("returnTime").value;
 
       const name =
-        document.getElementById(
-          "customerName"
-        ).value;
-
+        document.getElementById("customerName").value;
 
       const phone =
-        document.getElementById(
-          "phone"
-        ).value;
-
+        document.getElementById("phone").value;
 
       const email =
-        document.getElementById(
-          "email"
-        ).value;
-
+        document.getElementById("email").value;
 
       const people =
-        document.getElementById(
-          "people"
-        ).value;
-
+        document.getElementById("people").value;
 
       const message =
-        document.getElementById(
-          "message"
-        ).value;
+        document.getElementById("message").value;
 
 
-      if (
-        returnDate < startDate
-      ) {
+
+      /* =========================
+         日付チェック
+      ========================= */
+
+      if (returnDate < startDate) {
 
         alert(
           "返却日は利用開始日以降の日付を選択してください。"
@@ -1610,53 +1866,347 @@
       }
 
 
-      alert(
 
-        "予約内容を受け付けました。\n\n" +
+      /* =========================
+         利用時間を計算
+      ========================= */
 
-        "利用開始：" +
-        startDate +
-        " " +
+      const start =
+        new Date(
+          startDate +
+          "T" +
+          startTime
+        );
+
+
+      const end =
+        new Date(
+          returnDate +
+          "T" +
+          returnTime
+        );
+
+
+      const hours =
+        (end - start) /
+        (1000 * 60 * 60);
+
+
+
+      /* =========================
+         料金プラン判定
+      ========================= */
+
+      let plan = "";
+
+
+      if (hours <= 24) {
+
+        plan =
+          "24時間：18,000円";
+
+      }
+
+      else if (hours <= 48) {
+
+        plan =
+          "48時間：34,000円";
+
+      }
+
+      else if (hours <= 72) {
+
+        plan =
+          "72時間：50,000円";
+
+      }
+
+      else {
+
+        plan =
+          "72時間超・その他";
+
+      }
+
+
+
+      /* =========================
+         Googleフォーム設定
+      ========================= */
+
+      const googleFormUrl =
+        "https://docs.google.com/forms/d/e/1FAIpQLSf_lXSAW5_LB-hbPeTHPhA6E0UICvqw0JuYirMGyIYTdLuarg/formResponse";
+
+
+
+      /* =========================
+         Googleフォーム送信用iframe
+      ========================= */
+
+      const iframe =
+        document.createElement("iframe");
+
+
+      iframe.name =
+        "googleFormTarget";
+
+
+      iframe.style.display =
+        "none";
+
+
+      document.body.appendChild(
+        iframe
+      );
+
+
+
+      /* =========================
+         Googleフォーム送信用フォーム
+      ========================= */
+
+      const form =
+        document.createElement("form");
+
+
+      form.method =
+        "POST";
+
+
+      form.action =
+        googleFormUrl;
+
+
+      form.target =
+        "googleFormTarget";
+
+
+      form.style.display =
+        "none";
+
+
+
+      /* =========================
+         hidden項目追加関数
+      ========================= */
+
+      function addField(
+        name,
+        value
+      ) {
+
+        const input =
+          document.createElement(
+            "input"
+          );
+
+
+        input.type =
+          "hidden";
+
+
+        input.name =
+          name;
+
+
+        input.value =
+          value;
+
+
+        form.appendChild(
+          input
+        );
+
+      }
+
+
+
+      /* =========================
+         Googleフォームへ入力
+      ========================= */
+
+
+      // お名前
+
+      addField(
+        "entry.1446980155",
+        name
+      );
+
+
+      // 電話番号
+
+      addField(
+        "entry.285788319",
+        phone
+      );
+
+
+      // メールアドレス
+
+      addField(
+        "entry.769063740",
+        email
+      );
+
+
+      // 利用開始日
+
+      addField(
+        "entry.815169270",
+        startDate
+      );
+
+
+      // 返却日
+
+      addField(
+        "entry.515143310",
+        returnDate
+      );
+
+
+      // 大人
+
+      addField(
+        "entry.501603723",
+        people
+      );
+
+
+      // 子ども
+
+      addField(
+        "entry.421824229",
+        "0"
+      );
+
+
+      // 希望利用プラン
+
+      addField(
+        "entry.1546938056",
+        plan
+      );
+
+
+      // 住所
+
+      // サイト側に住所欄がないため空欄
+
+      addField(
+        "entry.1518566633",
+        ""
+      );
+
+
+      /* =========================
+         時間と要望
+      ========================= */
+
+      const detailMessage =
+
+        "【利用開始時間】 " +
         startTime +
+
         "\n" +
 
-        "返却：" +
-        returnDate +
-        " " +
+        "【返却時間】 " +
         returnTime +
-        "\n" +
 
-        "お名前：" +
-        name +
-        "\n" +
+        "\n\n" +
 
-        "電話番号：" +
-        phone +
-        "\n" +
+        "【その他・ご要望】\n" +
 
-        "メール：" +
-        email +
-        "\n" +
+        message;
 
-        "利用人数：" +
-        people +
-        "名\n\n" +
 
-        "現在は確認画面の準備中です。"
+      addField(
+        "entry.477018071",
+        detailMessage
+      );
 
+
+
+      /* =========================
+         ページへ追加
+      ========================= */
+
+      document.body.appendChild(
+        form
+      );
+
+
+
+      /* =========================
+         Googleフォームへ送信
+      ========================= */
+
+      form.submit();
+
+
+
+      /* =========================
+         お客様へ完了表示
+      ========================= */
+
+      setTimeout(
+        function() {
+
+          alert(
+
+            "予約申込みを受け付けました！\n\n" +
+
+            "利用開始：" +
+            startDate +
+            " " +
+            startTime +
+
+            "\n" +
+
+            "返却：" +
+            returnDate +
+            " " +
+            returnTime +
+
+            "\n" +
+
+            "お名前：" +
+            name +
+
+            "\n\n" +
+
+            "内容を確認後、正式な予約確定のご連絡をいたします。"
+
+          );
+
+
+          /* =========================
+             サイト側フォームをリセット
+          ========================= */
+
+          document
+            .querySelector(
+              "#reservation form"
+            )
+            .reset();
+
+
+          iframe.remove();
+
+          form.remove();
+
+
+        },
+        1000
       );
 
     }
 
 
-    /* =========================
-       初期表示
-    ========================= */
-
-    renderCalendar();
-
   </script>
 
+
 </body>
+
 </html>
-```
