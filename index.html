@@ -49,12 +49,6 @@
       font: inherit;
     }
 
-    button,
-    a,
-    select {
-      -webkit-tap-highlight-color: transparent;
-    }
-
     a {
       color: inherit;
       text-decoration: none;
@@ -68,7 +62,7 @@
     /* ヘッダー */
 
     header {
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.96);
       border-bottom: 1px solid rgba(100, 160, 180, 0.12);
     }
 
@@ -95,21 +89,25 @@
     .header-nav {
       display: flex;
       align-items: center;
-      gap: 25px;
-      font-size: 14px;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 13px;
       font-weight: 700;
     }
 
-    .header-nav a:hover {
-      color: var(--pink-dark);
+    .header-nav a {
+      display: inline-block;
+      padding: 9px 12px;
+      border-radius: 10px;
+      background: #fce9ef;
+      color: #85556a;
+      white-space: nowrap;
+      transition: background .2s;
     }
 
-    .nav-button {
-      display: inline-block;
-      padding: 10px 18px;
-      background: var(--pink);
-      border-radius: 999px;
-      color: var(--pink-dark);
+    .header-nav a:hover {
+      background: #f5cfdd;
     }
 
     /* メインビジュアル */
@@ -174,19 +172,6 @@
       border: 1px solid rgba(255,255,255,.8);
       border-radius: 24px;
       box-shadow: var(--shadow);
-    }
-
-    .search-title {
-      margin: 0 0 6px;
-      color: #85556a;
-      font-size: 23px;
-      font-weight: 900;
-    }
-
-    .search-subtitle {
-      margin: 0 0 23px;
-      color: #8b6b79;
-      font-size: 13px;
     }
 
     .search-grid {
@@ -265,6 +250,7 @@
 
     section.content-section {
       padding: 55px 0;
+      scroll-margin-top: 20px;
     }
 
     .section-heading {
@@ -292,7 +278,7 @@
       font-size: 14px;
     }
 
-    /* 特徴 */
+    /* サービス説明 */
 
     .features {
       display: grid;
@@ -333,82 +319,62 @@
       font-size: 14px;
     }
 
-    /* 利用の流れ */
+    /* 借りたい方 */
 
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .step-card {
-      padding: 23px;
-      border-radius: 18px;
-      background: white;
+    .renter-panel,
+    .owner-panel,
+    .notice-panel {
+      padding: 30px;
+      border: 1px solid rgba(255,255,255,.8);
+      border-radius: 22px;
+      background: rgba(255,255,255,.85);
       box-shadow: var(--shadow);
     }
 
-    .step-number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 35px;
-      height: 35px;
-      border-radius: 50%;
-      background: var(--pink);
-      color: var(--pink-dark);
-      font-weight: 900;
-    }
-
-    .step-card h3 {
-      margin: 12px 0 6px;
+    .renter-panel h3,
+    .owner-panel h3,
+    .notice-panel h3 {
+      margin-top: 0;
       color: var(--navy);
-      font-size: 18px;
     }
 
-    .step-card p {
-      margin: 0;
-      color: #70818a;
-      font-size: 14px;
+    .info-list {
+      padding-left: 1.4em;
     }
 
-    /* 貸し手向け */
-
-    .owner-section {
-      padding: 0 0 65px;
+    .info-list li {
+      margin: 8px 0;
     }
+
+    /* 貸したい方 */
 
     .owner-panel {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 25px;
-      padding: 32px;
-      border: 1px solid rgba(255,255,255,.8);
-      border-radius: 22px;
       background: #fce9ef;
+      color: #80566a;
     }
 
-    .owner-panel h2 {
-      margin: 0 0 8px;
+    .owner-panel h3 {
       color: #80566a;
-      font-size: 24px;
     }
 
     .owner-panel p {
-      margin: 0;
-      color: #8b6b79;
-      font-size: 14px;
+      margin-bottom: 0;
     }
 
-    .owner-button {
-      flex-shrink: 0;
-      display: inline-block;
-      padding: 13px 22px;
-      border-radius: 999px;
-      background: white;
-      color: var(--pink-dark);
-      font-weight: 800;
+    /* 注意事項 */
+
+    .notice-panel {
+      background: #fffafc;
+    }
+
+    .notice-panel h3 {
+      font-size: 19px;
+    }
+
+    .notice-panel p {
+      margin-bottom: 0;
+      color: #70818a;
+      font-size: 14px;
     }
 
     /* フッター */
@@ -447,41 +413,55 @@
 
     /* スマートフォン対応 */
 
-    @media (max-width: 850px) {
-      .header-nav {
-        gap: 12px;
+    @media (max-width: 1000px) {
+      .header-inner {
+        padding: 14px 0;
+        flex-direction: column;
       }
 
+      .header-nav {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 850px) {
       .search-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .features,
-      .steps {
+      .features {
         gap: 12px;
       }
     }
 
     @media (max-width: 600px) {
       .header-inner {
-        min-height: 68px;
+        gap: 12px;
       }
 
       .logo {
-        font-size: 20px;
+        font-size: 21px;
       }
 
-      .header-nav a:not(.nav-button) {
-        display: none;
+      .header-nav {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 7px;
       }
 
-      .nav-button {
-        padding: 8px 12px;
+      .header-nav a {
+        padding: 9px 5px;
+        text-align: center;
         font-size: 12px;
       }
 
       .hero {
         padding: 38px 0 32px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
       }
 
       .hero-description {
@@ -498,10 +478,6 @@
         border-radius: 19px;
       }
 
-      .search-title {
-        font-size: 21px;
-      }
-
       .search-grid {
         grid-template-columns: 1fr;
         gap: 13px;
@@ -516,8 +492,7 @@
         padding: 40px 0;
       }
 
-      .features,
-      .steps {
+      .features {
         grid-template-columns: 1fr;
       }
 
@@ -525,19 +500,10 @@
         padding: 22px;
       }
 
-      .owner-panel {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 24px 20px;
-      }
-
-      .owner-panel h2 {
-        font-size: 21px;
-      }
-
-      .owner-button {
-        align-self: stretch;
-        text-align: center;
+      .renter-panel,
+      .owner-panel,
+      .notice-panel {
+        padding: 22px 18px;
       }
     }
   </style>
@@ -550,14 +516,16 @@
       <a class="logo" href="#">パーキング<span>ちょい貸し</span></a>
 
       <nav class="header-nav" aria-label="メインメニュー">
-        <a href="#features">サービス紹介</a>
-        <a href="#how-to">利用の流れ</a>
-        <a class="nav-button" href="#search">駐車場を探す</a>
+        <a href="#features">当サイトの説明</a>
+        <a href="#renter">駐車場を借りたい方へ</a>
+        <a href="#owners">駐車場を貸したい方へ</a>
+        <a href="#注意事項">注意事項</a>
       </nav>
     </div>
   </header>
 
   <main>
+
     <section class="hero">
       <div class="container">
         <span class="hero-label">駐車場探しを、もっと気軽に。</span>
@@ -577,13 +545,11 @@
       </div>
     </section>
 
+    <!-- 検索欄 -->
+
     <section class="search-section" id="search">
       <div class="container">
         <div class="search-panel">
-          <h2 class="search-title">駐車スペースを探す</h2>
-          <p class="search-subtitle">
-            日程と車のサイズに合ったスペースを探そう！
-          </p>
 
           <form id="search-form">
             <div class="search-grid">
@@ -599,7 +565,7 @@
               </div>
 
               <div class="field">
-                <label for="prefecture">📍 都道府県</label>
+                <label for="prefecture">📍 県</label>
                 <select id="prefecture" name="prefecture" required>
                   <option value="">県を選択</option>
                   <option>北海道</option>
@@ -690,24 +656,28 @@
               aria-live="polite"
             ></div>
           </form>
+
         </div>
       </div>
     </section>
+
+    <!-- 当サイトの説明 -->
 
     <section class="content-section" id="features">
       <div class="container">
         <div class="section-heading">
           <p class="eyebrow">ABOUT US</p>
-          <h2>パーキングちょい貸しって？</h2>
+          <h2>当サイトの説明</h2>
           <p>駐車場探しも、車中泊の旅も、もっと自由に。</p>
         </div>
 
         <div class="features">
+
           <article class="feature-card">
             <div class="feature-icon" aria-hidden="true">🅿️</div>
             <h3>空きスペースを活用</h3>
             <p>
-              自宅や土地の空いているスペースを、必要な人に貸し出すサービス。
+              自宅や土地の空いているスペースを、必要な人に貸し出すサービスです。
             </p>
           </article>
 
@@ -715,7 +685,7 @@
             <div class="feature-icon" aria-hidden="true">🚙</div>
             <h3>車中泊の旅にも</h3>
             <p>
-              車の中で休みながら旅を楽しみたい人も、条件に合う場所を探せる。
+              車の中で休みながら旅を楽しみたい人も、条件に合う場所を探せます。
             </p>
           </article>
 
@@ -723,78 +693,107 @@
             <div class="feature-icon" aria-hidden="true">🌸</div>
             <h3>気軽に、わかりやすく</h3>
             <p>
-              利用日や車のサイズから、自分に合った駐車スペースを探そう。
+              利用日や車のサイズから、自分に合った駐車スペースを探せます。
             </p>
           </article>
+
         </div>
       </div>
     </section>
 
-    <section class="content-section" id="how-to">
+    <!-- 駐車場を借りたい方へ -->
+
+    <section class="content-section" id="renter">
       <div class="container">
         <div class="section-heading">
-          <p class="eyebrow">HOW TO USE</p>
-          <h2>利用の流れ</h2>
-          <p>シンプルでわかりやすいサービスを目指します。</p>
+          <p class="eyebrow">FOR RENTERS</p>
+          <h2>駐車場を借りたい方へ</h2>
+          <p>利用前に確認して、安心できるクルマ旅を。</p>
         </div>
 
-        <div class="steps">
-          <article class="step-card">
-            <span class="step-number">1</span>
-            <h3>条件を入力</h3>
-            <p>利用日、都道府県、泊数、車のサイズを選びます。</p>
-          </article>
+        <div class="renter-panel">
+          <h3>ご利用の流れ</h3>
 
-          <article class="step-card">
-            <span class="step-number">2</span>
-            <h3>場所を選ぶ</h3>
-            <p>設備や利用条件、料金を確認して場所を選びます。</p>
-          </article>
+          <ol class="info-list">
+            <li>利用日、都道府県、泊数、車の長さを選んで検索します。</li>
+            <li>駐車スペースの場所、料金、利用条件を確認します。</li>
+            <li>予約方法に従って予約し、利用ルールを守ってご利用ください。</li>
+          </ol>
 
-          <article class="step-card">
-            <span class="step-number">3</span>
-            <h3>予約して出発！</h3>
-            <p>予約方法や現地のルールを確認して、楽しい旅へ。</p>
-          </article>
+          <p>
+            ※ 現在は試作版です。駐車場検索、予約、決済機能は今後追加します。
+          </p>
         </div>
       </div>
     </section>
 
-    <section class="owner-section" id="owners">
+    <!-- 駐車場を貸したい方へ -->
+
+    <section class="content-section" id="owners">
       <div class="container">
-        <div class="owner-panel">
-          <div>
-            <h2>あなたの空きスペース、貸してみませんか？</h2>
-            <p>
-              使っていない駐車スペースを、誰かの旅に役立てよう。
-            </p>
-          </div>
+        <div class="section-heading">
+          <p class="eyebrow">FOR SPACE OWNERS</p>
+          <h2>駐車場を貸したい方へ</h2>
+          <p>空いているスペースを、誰かの旅に役立てませんか？</p>
+        </div>
 
-          <a class="owner-button" href="mailto:">
-            貸し手登録について
-          </a>
+        <div class="owner-panel">
+          <h3>空きスペースを活用しよう</h3>
+          <p>
+            自宅や所有地の空きスペースを登録し、駐車場を探している人に貸し出すサービスを目指しています。
+            登録方法や貸出条件などの詳細は、今後整備していきます。
+          </p>
         </div>
       </div>
     </section>
+
+    <!-- 注意事項 -->
+
+    <section class="content-section" id="注意事項">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">IMPORTANT NOTICE</p>
+          <h2>注意事項</h2>
+          <p>ご利用前に必ずご確認ください。</p>
+        </div>
+
+        <div class="notice-panel">
+          <h3>ご利用にあたって</h3>
+          <ul class="info-list">
+            <li>駐車可能な車両の大きさや利用時間など、各スペースの条件を事前に確認してください。</li>
+            <li>車中泊の可否は、各スペースの掲載条件に従ってください。</li>
+            <li>騒音、ごみの放置、火気の使用など、近隣や土地所有者の迷惑になる行為はお控えください。</li>
+            <li>トイレ、給水、電源などの設備は、掲載情報に明記されている場合を除き、利用できるとは限りません。</li>
+            <li>現地の案内や土地所有者が定める利用ルールに従ってください。</li>
+          </ul>
+
+          <p>
+            ※ ここに記載した内容は試作段階の案内です。サービス開始前に、利用規約、安全上のルール、キャンセル・トラブル時の対応などを整備します。
+          </p>
+        </div>
+      </div>
+    </section>
+
   </main>
+
+  <!-- フッター -->
 
   <footer>
     <div class="container">
       <div class="footer-logo">パーキングちょい貸し 🌸</div>
 
       <div class="footer-links">
-        <a href="#features">サービス紹介</a>
-        <a href="#how-to">利用の流れ</a>
-        <a href="#owners">貸し手の方へ</a>
+        <a href="#features">当サイトの説明</a>
+        <a href="#renter">駐車場を借りたい方へ</a>
+        <a href="#owners">駐車場を貸したい方へ</a>
+        <a href="#注意事項">注意事項</a>
       </div>
 
       <p class="footer-note">
         ※ 現在はサイトの試作版です。検索・予約機能はこれから実装します。
       </p>
 
-      <small>
-        © 2026 パーキングちょい貸し
-      </small>
+      <small>© 2026 パーキングちょい貸し</small>
     </div>
   </footer>
 
@@ -802,6 +801,7 @@
     // 今日より前の日付を選べないようにする
     const dateInput = document.getElementById("start-date");
     const today = new Date();
+
     const localToday = new Date(
       today.getTime() - today.getTimezoneOffset() * 60000
     ).toISOString().split("T")[0];
@@ -810,7 +810,7 @@
     dateInput.value = localToday;
 
     // 検索フォームの動作確認
-    // 実際の駐車場データとの連携は次の段階で追加します
+    // 駐車場データとの連携は次の段階で追加
     const searchForm = document.getElementById("search-form");
     const searchMessage = document.getElementById("search-message");
 
@@ -835,7 +835,8 @@
         over7: "7m超"
       };
 
-      const nightLabel = nights === "7" ? "7泊以上" : nights + "泊";
+      const nightLabel =
+        nights === "7" ? "7泊以上" : nights + "泊";
 
       searchMessage.textContent =
         "検索条件を受け付けました！ " +
